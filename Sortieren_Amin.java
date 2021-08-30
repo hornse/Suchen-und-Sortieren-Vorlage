@@ -1,5 +1,6 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
+import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -113,6 +114,9 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * 
+     * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
+     * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
     public void bubblesort()
     {   
@@ -137,6 +141,9 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * 
+     * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird
+     * bis eine kleinere gefunden wurde. Dann werden sie getauscht und es wird zur nächsten Zahl übergegangen.
      */
     public void insertionsort()
     {   
@@ -162,6 +169,8 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * 
+     * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links iteriert wird.
      */
     public void selectionSort()
     {
@@ -179,6 +188,9 @@ public class Sortieren_Amin
     /**
      * Methode lineareSuche
      *
+     *Es wird durch das Array iteriert und die übergebene Zahl mit der jeweiligen Zahl verglichen.
+     *Wenn keine Zahl gefunden wird gibt die Methode false zurück
+     *
      * @param pZahl Angabe der zu suchenden zahl
      * @return true wenn die Zahl gefunden wurde, sonst false
      */
@@ -193,8 +205,6 @@ public class Sortieren_Amin
     }    
 
     public void print() {
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            System.out.println(zZahlenarray[i]);
-        }
+        System.out.println(Arrays.toString(zZahlenarray));
     }
 }
