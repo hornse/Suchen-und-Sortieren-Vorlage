@@ -171,7 +171,11 @@ public class Sortieren_Amin
      */
     public boolean lineareSuche(int pZahl)
     {      
-        //
+        for(int i : zZahlenarray) {
+            if(i == pZahl) {
+                return true;
+            }
+        }
         return false;
     }    
     
