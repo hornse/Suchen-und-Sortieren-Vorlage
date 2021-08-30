@@ -175,6 +175,8 @@
                         abbruch = true;
                     }
                 }
+                
+                //Nun beginnt die Rückubg der Elemente nach rechts
                 int zwischenVor = zZahlenarray[einIndex]; // Wert vor Vertauschung der verschwidet
                 int zwischenNach = Zahl;
                 while(einIndex <= index){
