@@ -8,49 +8,49 @@ import java.util.Random;
  * werden muss.
  * 
  * @author Sebastian Horn
- * @version 0.2
+ * @version 0.1
  */
 
-public class Sortieren_Adrian1
+public class Sortieren_Paul
 {            
-    
+
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
-            
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Adrian1 
-    
+
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
+
     /**
-     * Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Adrian1()
+    public Sortieren_Paul()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
         zZufallsgenerator = new Random(); 
     }
-    
+
     /**
-     * 2. Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Adrian1(int pGroesse)
+    public Sortieren_Paul(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
     }
-    
+
     /**
-     * 3. Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
@@ -58,12 +58,13 @@ public class Sortieren_Adrian1
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Adrian1(int pGroesse, int pMaxZahl)
+    public Sortieren_Paul(int pGroesse, int pMaxZahl)
     {  
-        //Zustandvariablen werden initialisiert
-        //Dein Quellcode hier
+        zZahlenarray=new int [pGroesse];
+        zZufallsgenerator=new Random(); 
+        bfmsZufallflex(pMaxZahl);
     }
-    
+
     /**
      * Methode bfmsZufall
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -71,11 +72,11 @@ public class Sortieren_Adrian1
      */
     public void bfmsZufall()
     {         
-        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
-        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
-        // von 0 - 1000
+        for(int i=0; i<zZahlenarray.length; i++) {
+            zZahlenarray[i]=zZufallsgenerator.nextInt(1000);
+        }
     }
-    
+
     /**
      * Methode bfmsZufallflex
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -83,9 +84,10 @@ public class Sortieren_Adrian1
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-       // Dein Quellcode hier
+        for(int i=0; i<zZahlenarray.length; i++) {
+            zZahlenarray[i]=zZufallsgenerator.nextInt(pMaxZahl);
+        }
     }
-
 
     /**
      * Method bfms
@@ -95,13 +97,12 @@ public class Sortieren_Adrian1
      */
     public void bfms()
     { 
-        for(int i = 0; i < 30; i++)
+        for(int i = 0; i < zZahlenarray.length; i++)
         {
-            zZahlenarray[i]= i +1;
+            zZahlenarray[i]=i+1;
         }
     }
-    
-    
+
     /**
      * Method bubblesort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
@@ -115,9 +116,19 @@ public class Sortieren_Adrian1
      */
     public void bubblesort()
     {   
-       //Dein Quellcode
+        int pGroesse=zZahlenarray.length;  
+        int temp=0;  
+         for(int i=0; i<pGroesse; i++){  
+                 for(int j=1;j<(pGroesse-i); j++){  
+                          if(zZahlenarray[j-1]>zZahlenarray[j]){  
+                                 temp=zZahlenarray[j-1];  
+                                 zZahlenarray[j-1]=zZahlenarray[j];  
+                                 zZahlenarray[j]=temp;  
+                         }  
+                 }  
+         }  
     }
-    
+
     /**
      * Method insertionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -135,9 +146,9 @@ public class Sortieren_Adrian1
         for (int i=1; i<=zZahlenarray.length-1; i++)
         {   
             
-        }    
+        }   
     }
-    
+
     /**
      * Method selectionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -153,8 +164,7 @@ public class Sortieren_Adrian1
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
     }    
-    
-    
+
     /**
      * Methode lineareSuche
      *
@@ -163,7 +173,7 @@ public class Sortieren_Adrian1
      */
     public boolean lineareSuche(int pZahl)
     {      
-       //
-       return false;
-    }    
+        //
+        return false;
+    }
 }

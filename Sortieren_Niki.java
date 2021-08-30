@@ -1,6 +1,5 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
-import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -9,49 +8,49 @@ import java.util.Arrays;
  * werden muss.
  * 
  * @author Sebastian Horn
- * @version 0.1
+ * @version 0.2
  */
 
-public class Sortieren_Amin
+public class Sortieren_Niki
 {            
-
+    
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
-
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
-
+            
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Niki 
+    
     /**
-     * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren_Niki. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Niki erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin()
+    public Sortieren_Niki()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
         zZufallsgenerator = new Random(); 
     }
-
+    
     /**
-     * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * 2. Konstruktor der Klasse Sortieren_Niki. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Niki erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin(int pGroesse)
+    public Sortieren_Niki(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
     }
-
+    
     /**
-     * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * 3. Konstruktor der Klasse Sortieren_Niki. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Niki erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
@@ -59,13 +58,12 @@ public class Sortieren_Amin
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Amin(int pGroesse, int pMaxZahl)
+    public Sortieren_Niki(int pGroesse, int pMaxZahl)
     {  
-        zZahlenarray = new int [pGroesse];
-        zZufallsgenerator = new Random(); 
-        bfmsZufallflex(pMaxZahl);
+        //Zustandvariablen werden initialisiert
+        //Dein Quellcode hier
     }
-
+    
     /**
      * Methode bfmsZufall
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -73,11 +71,15 @@ public class Sortieren_Amin
      */
     public void bfmsZufall()
     {         
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
-        }
+        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
+        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
+        // von 0 - 1000
+        for(int i=0; i<zZahlenarray.length;i++)
+            {
+                zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
+            }
     }
-
+    
     /**
      * Methode bfmsZufallflex
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -85,10 +87,13 @@ public class Sortieren_Amin
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
-        }
+       // Dein Quellcode hier
+       for(int i=0; i<zZahlenarray.length;i++)
+           {
+               zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
+            }
     }
+
 
     /**
      * Method bfms
@@ -98,12 +103,13 @@ public class Sortieren_Amin
      */
     public void bfms()
     { 
-        for(int i = 0; i < zZahlenarray.length; i++)
+        for(int i = 0; i < 30; i++)
         {
             zZahlenarray[i]= i +1;
         }
     }
-
+    
+    
     /**
      * Method bubblesort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
@@ -114,23 +120,12 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
-     * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
     public void bubblesort()
     {   
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            for(int j = 0; j< zZahlenarray.length-1; j++) {
-                if(zZahlenarray[j]>zZahlenarray[j+1]) {
-                    int temp = zZahlenarray[j];
-                    zZahlenarray[j] = zZahlenarray[j+1];
-                    zZahlenarray[j+1] = temp;
-                }
-            }
-        }
+       //Dein Quellcode
     }
-
+    
     /**
      * Method insertionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -141,24 +136,16 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird
-     * bis eine kleinere gefunden wurde. Dann werden sie getauscht und es wird zur nächsten Zahl übergegangen.
      */
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i = 1; i < zZahlenarray.length; i++) {
-            int temp = zZahlenarray[i];
-            int j = i;
-            while (j > 0 && zZahlenarray[j - 1] > temp) {
-                zZahlenarray[j] = zZahlenarray[j - 1];
-                j--;
-            }
-            zZahlenarray[j] = temp;
-        }
+        for (int i=1; i<=zZahlenarray.length-1; i++)
+        {   
+            
+        }    
     }
-
+    
     /**
      * Method selectionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -169,42 +156,22 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links iteriert wird.
      */
     public void selectionSort()
     {
-        for (int i = 0; i < zZahlenarray.length - 1; i++) {
-            for (int j = i + 1; j < zZahlenarray.length; j++) {
-                if (zZahlenarray[i] > zZahlenarray[j]) {
-                    int temp = zZahlenarray[i];
-                    zZahlenarray[i] = zZahlenarray[j];
-                    zZahlenarray[j] = temp;
-                }
-            }
-        }
+        //Tipp: Auch hier werden 2 Schleifen benötigt
     }    
-
+    
+    
     /**
      * Methode lineareSuche
-     *
-     *Es wird durch das Array iteriert und die übergebene Zahl mit der jeweiligen Zahl verglichen.
-     *Wenn keine Zahl gefunden wird gibt die Methode false zurück
      *
      * @param pZahl Angabe der zu suchenden zahl
      * @return true wenn die Zahl gefunden wurde, sonst false
      */
     public boolean lineareSuche(int pZahl)
     {      
-        for(int i : zZahlenarray) {
-            if(i == pZahl) {
-                return true;
-            }
-        }
-        return false;
+       //
+       return false;
     }    
-
-    public void print() {
-        System.out.println(Arrays.toString(zZahlenarray));
-    }
 }
