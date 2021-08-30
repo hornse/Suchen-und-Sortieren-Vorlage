@@ -8,26 +8,26 @@ import java.util.Random;
  * werden muss.
  * 
  * @author Sebastian Horn
- * @version 0.2
+ * @version 0.1
  */
 
-public class Sortieren_Adrian1
+public class Sortieren_Taha
 {            
     
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
             
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Adrian1 
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
     
     /**
-     * Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Adrian1()
+    public Sortieren_Taha()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
@@ -35,13 +35,13 @@ public class Sortieren_Adrian1
     }
     
     /**
-     * 2. Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Adrian1(int pGroesse)
+    public Sortieren_Taha(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
@@ -49,8 +49,8 @@ public class Sortieren_Adrian1
     }
     
     /**
-     * 3. Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
@@ -58,10 +58,12 @@ public class Sortieren_Adrian1
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Adrian1(int pGroesse, int pMaxZahl)
+    public Sortieren_Taha(int pGroesse, int pMaxZahl)
     {  
         //Zustandvariablen werden initialisiert
-        //Dein Quellcode hier
+        zZahlenarray = new int [pGroesse];
+        zZufallsgenerator = new Random(); 
+        bfmsZufallflex(pMaxZahl);
     }
     
     /**
@@ -71,9 +73,9 @@ public class Sortieren_Adrian1
      */
     public void bfmsZufall()
     {         
-        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
-        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
-        // von 0 - 1000
+        for(int i = 0; i < zZahlenarray.length; i++) {
+            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
+        }
     }
     
     /**
@@ -83,9 +85,10 @@ public class Sortieren_Adrian1
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-       // Dein Quellcode hier
+        for(int i = 0; i < zZahlenarray.length; i++) {
+            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
+        }
     }
-
 
     /**
      * Method bfms
@@ -97,10 +100,9 @@ public class Sortieren_Adrian1
     { 
         for(int i = 0; i < 30; i++)
         {
-            zZahlenarray[i]= i +1;
+            zZahlenarray[i]= i + 1;
         }
     }
-    
     
     /**
      * Method bubblesort
@@ -115,7 +117,23 @@ public class Sortieren_Adrian1
      */
     public void bubblesort()
     {   
-       //Dein Quellcode
+         // dieser loop geht einmal durch den array durch
+         for(int i = 0; i < zZahlenarray.length; i++){  
+             /**
+              * dieser loop geht immer bis zu dem array bis zu dem ende minus dem index,
+              * da nach einem durchgang die letzte zahl sortiert ist
+              * und - 1, da neben rechts der letzten zahl nichts ist
+              */
+             for(int j = 0; j < zZahlenarray.length - i - 1; j++){  
+                 // wir gucken ob die zahl rechts neben von dem aktuellen index kleiner ist
+                 if(zZahlenarray[j] > zZahlenarray[j + 1]){   
+                     // wir vertauschen die beiden zahlen
+                     int temp = zZahlenarray[j];  
+                     zZahlenarray[j] = zZahlenarray[j + 1];  
+                     zZahlenarray[j + 1] = temp;  
+                 }  
+             }  
+         }  
     }
     
     /**
@@ -132,9 +150,23 @@ public class Sortieren_Adrian1
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
+        for (int i = 1; i <= zZahlenarray.length - 1; i++)
         {   
-            
+            // wir gucken ob die links zahl größer ist als die rechte
+            if(zZahlenarray[i - 1] > zZahlenarray[i]) {
+                /**
+                 * das i > -1 sorgt dafür das die kleinste zahl des arrays nicht 
+                 * zu weit nach links geschoben wird ( out of bounds )
+                 * wir loopen so lange bis die linke zahl größer ist als die aktuelle
+                 */
+                while( (i > -1) && zZahlenarray[i - 1] > zZahlenarray[i]) {
+                    // wir vertauschen die beiden zahlen und gehen eins nach rechts
+                    int temp = zZahlenarray[i];  
+                    zZahlenarray[i] = zZahlenarray[i - 1];  
+                    zZahlenarray[i - 1] = temp;  
+                    i--;
+                }
+            }    
         }    
     }
     
@@ -151,9 +183,24 @@ public class Sortieren_Adrian1
      */
     public void selectionSort()
     {
-        //Tipp: Auch hier werden 2 Schleifen benötigt
+        // wir gehen durch den ganzen loop, - 1 weil die letzte zahl nichts rechts von ihr hat
+        for(int i = 0; i < zZahlenarray.length - 1; i++) { 
+            // wir deklarieren den index mit der niedrigsten zahl als die aktuelle zahl
+            int lowest = i;
+            // wir gehen durch den restlichen array und suchen immer einer niedrigere zahl
+            for(int j = i + 1; j < zZahlenarray.length; j++) {  
+                if(zZahlenarray[j] < zZahlenarray[lowest]){
+                    // deklarierung des index mit der (aktuellen) niedgristen zahl
+                    lowest = j;
+                }
+            }
+            
+            // wir vertauschen den aktuellen index mit dem der niedrigsten
+            int temp = zZahlenarray[i];
+            zZahlenarray[i] = zZahlenarray[lowest];  
+            zZahlenarray[lowest] = temp;
+        }
     }    
-    
     
     /**
      * Methode lineareSuche
@@ -163,7 +210,11 @@ public class Sortieren_Adrian1
      */
     public boolean lineareSuche(int pZahl)
     {      
-       //
-       return false;
+        for(int i = 0; i < zZahlenarray.length; i++){    
+            if(zZahlenarray[i] == pZahl){    
+                return true;    
+            }
+        }    
+        return false;
     }    
 }

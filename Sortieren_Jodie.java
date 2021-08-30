@@ -1,6 +1,5 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
-import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -12,7 +11,7 @@ import java.util.Arrays;
  * @version 0.1
  */
 
-public class Sortieren_Amin
+public class Sortieren_Jodie
 {            
 
     //Deklaration der globalen Variablen/Zustandvariablen
@@ -28,7 +27,7 @@ public class Sortieren_Amin
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin()
+    public Sortieren_Jodie()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
@@ -42,7 +41,7 @@ public class Sortieren_Amin
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin(int pGroesse)
+    public Sortieren_Jodie(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
@@ -59,7 +58,7 @@ public class Sortieren_Amin
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Amin(int pGroesse, int pMaxZahl)
+    public Sortieren_Jodie(int pGroesse, int pMaxZahl)
     {  
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
@@ -114,15 +113,12 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
-     * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
     public void bubblesort()
     {   
-        for(int i = 0; i<zZahlenarray.length; i++) {
+        for(int i = 0; i< zZahlenarray.length; i++) {
             for(int j = 0; j< zZahlenarray.length-1; j++) {
-                if(zZahlenarray[j]>zZahlenarray[j+1]) {
+                if(zZahlenarray[j]> zZahlenarray[j+1]) {
                     int temp = zZahlenarray[j];
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
@@ -141,22 +137,21 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird
-     * bis eine kleinere gefunden wurde. Dann werden sie getauscht und es wird zur nächsten Zahl übergegangen.
      */
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i = 1; i < zZahlenarray.length; i++) {
-            int temp = zZahlenarray[i];
+        for (int i=1; i<= zZahlenarray.length-1; i++)
+        {   int temp = zZahlenarray[i];
             int j = i;
             while (j > 0 && zZahlenarray[j - 1] > temp) {
                 zZahlenarray[j] = zZahlenarray[j - 1];
                 j--;
             }
             zZahlenarray[j] = temp;
-        }
+            
+            
+        }    
     }
 
     /**
@@ -169,12 +164,11 @@ public class Sortieren_Amin
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links iteriert wird.
      */
     public void selectionSort()
     {
-        for (int i = 0; i < zZahlenarray.length - 1; i++) {
+        //Tipp: Auch hier werden 2 Schleifen benötigt
+         for (int i = 0; i < zZahlenarray.length - 1; i++) {
             for (int j = i + 1; j < zZahlenarray.length; j++) {
                 if (zZahlenarray[i] > zZahlenarray[j]) {
                     int temp = zZahlenarray[i];
@@ -188,23 +182,18 @@ public class Sortieren_Amin
     /**
      * Methode lineareSuche
      *
-     *Es wird durch das Array iteriert und die übergebene Zahl mit der jeweiligen Zahl verglichen.
-     *Wenn keine Zahl gefunden wird gibt die Methode false zurück
-     *
      * @param pZahl Angabe der zu suchenden zahl
      * @return true wenn die Zahl gefunden wurde, sonst false
      */
     public boolean lineareSuche(int pZahl)
-    {      
-        for(int i : zZahlenarray) {
-            if(i == pZahl) {
-                return true;
-            }
+    {   for ( int i = 0; i < zZahlenarray.length; i++) {    
+        if ( zZahlenarray[i] == pZahl)
+        { return true;
         }
+    }
         return false;
-    }    
-
-    public void print() {
-        System.out.println(Arrays.toString(zZahlenarray));
     }
 }
+
+
+
