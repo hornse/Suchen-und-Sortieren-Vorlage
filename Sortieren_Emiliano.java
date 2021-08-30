@@ -11,48 +11,46 @@ import java.util.Random;
  * @version 0.2
  */
 
-public class Sortieren_Lars
+public class Sortieren_Emiliano
 {            
     
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
             
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Lars 
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Emiliano 
     
     /**
-     * Konstruktor der Klasse Sortieren_Lars. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Lars erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren_Emiliano. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Emiliano erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Lars()
+    public Sortieren_Emiliano()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
         zZufallsgenerator = new Random(); 
-        bfmsZufall();
     }
     
     /**
-     * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * 2. Konstruktor der Klasse Sortieren_Emiliano. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Emiliano erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Lars(int pGroesse)
+    public Sortieren_Emiliano(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
-        bfmsZufall();
     }
     
     /**
-     * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * 3. Konstruktor der Klasse Sortieren_Emiliano. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Emiliano erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
@@ -60,14 +58,11 @@ public class Sortieren_Lars
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Lars(int pGroesse, int pMaxZahl)
+    public Sortieren_Emiliano(int pGroesse, int pMaxZahl)
     {  
-        //Zustandvariablen werden initialisiert
-        //Dein Quellcode hier
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
         bfmsZufallflex(pMaxZahl);
-        
     }
     
     /**
@@ -80,10 +75,10 @@ public class Sortieren_Lars
         //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
         // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
         // von 0 - 1000
-        for(int i=0; i<zZahlenarray.length; i++){
+        for(int i = 0; i < zZahlenarray.length; i++) {
             zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
-        } 
         }
+    }
     
     /**
      * Methode bfmsZufallflex
@@ -92,10 +87,8 @@ public class Sortieren_Lars
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-       // Dein Quellcode hier
-       for(int i=0; i<zZahlenarray.length; i++){
+       for(int i = 0; i < zZahlenarray.length; i++) {
             zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
-            
         }
     }
 
@@ -122,31 +115,33 @@ public class Sortieren_Lars
      * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!! Hilfe zum Prinzip findest du unter:
      * https://www.youtube.com/watch?v=lyZQPjUT5B4 und im Buch!!!!!
      * 
-     * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
-     * muss aufgerufen worden sein.
-     * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * Die erste for-Schleife nimmt die erste Zahl vom Array. Die zweite for-Schleife nimmt die zweite
+     * Zahl vom Array und vergleicht sie mit der ersten, ob sie größer ist als die erste, wenn ja, dann werden die beiden Zahlen 
+     * getauscht.
+     * Dazu wird eine temporäre Datei (tmp) verwendet. Diese nimmt die größere Zahl und nimmt den wert an. Die
+     * kleinere Zahl nimmt den Wert der größeren Zahl an und die Datei, die die kleinere Zahl hatte, nimmt den Wert der
+     * temporären Datei an, die den Wert der größeren Zahl hatte.
+     * 
+     * Wenn fertig geprüft, bzw getauscht wurde, werden die nächsten beiden Zahlen geprüft und Sortiert, sodass am Ende
+     * ganz rechts die größte Zahl des Arrays steht.
      */
-    public void bubblesort()
-    {   
-       //Dein Quellcode
-       int index = 0;
-       // Äußere Schleife
-       while (index < zZahlenarray.length){
-           int inIndex = 1;
-           while(inIndex < zZahlenarray.length -index){
-               if(zZahlenarray[inIndex]<zZahlenarray[inIndex-1]){
-                int zwischen = zZahlenarray[inIndex];
-                zZahlenarray[inIndex] = zZahlenarray[inIndex -1];
-                zZahlenarray[inIndex-1] = zwischen;
-                
-                
-                
-                }
-                inIndex++;
-            }
-            index++;
-       
-        }
+    public void bubblesort() 
+    {
+        for(int i = 0; i < zZahlenarray.length; i++)
+        {  
+             //loop geht komplett durch minus index minus 1, weil Zahl ganz rechts ist sortiert
+             for(int j = 0; j < zZahlenarray.length - i - 1; j++)
+              {
+                 //überprüfung ob Zahl rechts kleiner ist
+                 if(zZahlenarray[j] > zZahlenarray[j + 1])
+                 {
+                     //beide zahlen werden vertauscht
+                     int temp = zZahlenarray[j];  
+                     zZahlenarray[j] = zZahlenarray[j + 1];  
+                     zZahlenarray[j + 1] = temp;  
+                 }  
+             }  
+        } 
     }
     
     /**
@@ -163,31 +158,12 @@ public class Sortieren_Lars
     public void insertionsort()
     {   
         //Tipp: i = 1
-        int index = 1;
-        while(index < zZahlenarray.length){
-            int Zahl = zZahlenarray[index]; // einzuordnende Zahl
-            int einIndex = index; //einzuordner Index --> 
-            while(einIndex>0){
-            if (Zahl<zZahlenarray[einIndex-1]){
-               einIndex--; 
-            }else{
-                break;
+        for (int  i = 1; i <= zZahlenarray.length - 1; i++)
+        {   
+            if (zZahlenarray[i - 1] > zZahlenarray[i])
+            {
             }
-        }
-        int zwischenVor = zZahlenarray[einIndex]; // Wert vor Vertauschung der verschwidet
-        int zwischenNach = Zahl;
-        while(einIndex <= index){
-            zwischenVor = zZahlenarray[einIndex];
-            zZahlenarray[einIndex] = zwischenNach;
-            zwischenNach = zwischenVor;
-            einIndex ++;
-            
-             
-        }
-           index++;
-        }
-       
-        
+        }    
     }
     
     /**
