@@ -8,32 +8,33 @@ import java.util.Random;
  * werden muss.
  * 
  * @author Sebastian Horn
- * @version 0.1
+ * @version 0.2
  */
 
-public class Sortieren_Amin
+public class Sortieren_Lars
 {            
-
+    
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
-
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
-
+            
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Lars 
+    
     /**
-     * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren_Lars. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Lars erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin()
+    public Sortieren_Lars()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
         zZufallsgenerator = new Random(); 
+        bfmsZufall();
     }
-
+    
     /**
      * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
@@ -41,13 +42,14 @@ public class Sortieren_Amin
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin(int pGroesse)
+    public Sortieren_Lars(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
+        bfmsZufall();
     }
-
+    
     /**
      * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
@@ -58,13 +60,16 @@ public class Sortieren_Amin
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Amin(int pGroesse, int pMaxZahl)
+    public Sortieren_Lars(int pGroesse, int pMaxZahl)
     {  
+        //Zustandvariablen werden initialisiert
+        //Dein Quellcode hier
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
         bfmsZufallflex(pMaxZahl);
+        
     }
-
+    
     /**
      * Methode bfmsZufall
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -72,11 +77,11 @@ public class Sortieren_Amin
      */
     public void bfmsZufall()
     {         
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
-        }
+        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
+        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
+        // von 0 - 1000
     }
-
+    
     /**
      * Methode bfmsZufallflex
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -84,10 +89,9 @@ public class Sortieren_Amin
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
-        }
+       // Dein Quellcode hier
     }
+
 
     /**
      * Method bfms
@@ -97,12 +101,13 @@ public class Sortieren_Amin
      */
     public void bfms()
     { 
-        for(int i = 0; i < zZahlenarray.length; i++)
+        for(int i = 0; i < 30; i++)
         {
             zZahlenarray[i]= i +1;
         }
     }
-
+    
+    
     /**
      * Method bubblesort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
@@ -116,17 +121,9 @@ public class Sortieren_Amin
      */
     public void bubblesort()
     {   
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            for(int j = 0; j< zZahlenarray.length-1; j++) {
-                if(zZahlenarray[j]>zZahlenarray[j+1]) {
-                    int temp = zZahlenarray[j];
-                    zZahlenarray[j] = zZahlenarray[j+1];
-                    zZahlenarray[j+1] = temp;
-                }
-            }
-        }
+       //Dein Quellcode
     }
-
+    
     /**
      * Method insertionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -143,10 +140,10 @@ public class Sortieren_Amin
         //Tipp: i = 1
         for (int i=1; i<=zZahlenarray.length-1; i++)
         {   
-
+            
         }    
     }
-
+    
     /**
      * Method selectionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -162,7 +159,8 @@ public class Sortieren_Amin
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
     }    
-
+    
+    
     /**
      * Methode lineareSuche
      *
@@ -171,17 +169,7 @@ public class Sortieren_Amin
      */
     public boolean lineareSuche(int pZahl)
     {      
-        for(int i : zZahlenarray) {
-            if(i == pZahl) {
-                return true;
-            }
-        }
-        return false;
+       //
+       return false;
     }    
-    
-    public void print() {
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            System.out.println(zZahlenarray[i]);
-        }
-    }
 }
