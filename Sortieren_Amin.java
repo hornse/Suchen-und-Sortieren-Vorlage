@@ -202,7 +202,12 @@ public class Sortieren_Amin
             }
         }
         return false;
-    }    
+    }
+    /**
+    * Methode print
+    *
+    * Das Array wird in der Konsole ausgegeben
+    */    
 
     public void print() {
         System.out.println(Arrays.toString(zZahlenarray));
