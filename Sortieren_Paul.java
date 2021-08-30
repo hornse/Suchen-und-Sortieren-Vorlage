@@ -7,8 +7,8 @@ import java.util.Random;
  * Fuer die Erzeugung von Zufallszahlen steht die Klasse Random zur Verfügung, die zuvor siehe 1. Zeile importiert 
  * werden muss.
  * 
- * @author Sebastian Horn
- * @version 0.1
+ * @author Paul Drösser
+ * @version 1.0
  */
 
 public class Sortieren_Paul
@@ -145,7 +145,12 @@ public class Sortieren_Paul
         //Tipp: i = 1
         for (int i=1; i<=zZahlenarray.length-1; i++)
         {   
-            
+         int temp=zZahlenarray[i];
+            while (i>0 && zZahlenarray[i-1] > temp) {
+                zZahlenarray[i]=zZahlenarray[i - 1];
+                i--;
+            }
+            zZahlenarray[i]=temp;   
         }   
     }
 
