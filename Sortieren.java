@@ -8,7 +8,7 @@ import java.util.Random;
  * werden muss.
  * 
  * @author Sebastian Horn
- * @version 0.1
+ * @version 0.2
  */
 
 public class Sortieren
