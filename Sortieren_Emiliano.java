@@ -75,6 +75,9 @@ public class Sortieren_Emiliano
         //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
         // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
         // von 0 - 1000
+        for(int i = 0; i < zZahlenarray.length; i++) {
+            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
+        }
     }
     
     /**
@@ -84,7 +87,9 @@ public class Sortieren_Emiliano
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-       // Dein Quellcode hier
+       for(int i = 0; i < zZahlenarray.length; i++) {
+            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
+        }
     }
 
 
@@ -110,13 +115,33 @@ public class Sortieren_Emiliano
      * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!! Hilfe zum Prinzip findest du unter:
      * https://www.youtube.com/watch?v=lyZQPjUT5B4 und im Buch!!!!!
      * 
-     * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
-     * muss aufgerufen worden sein.
-     * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * Die erste for-Schleife nimmt die erste Zahl vom Array. Die zweite for-Schleife nimmt die zweite
+     * Zahl vom Array und vergleicht sie mit der ersten, ob sie größer ist als die erste, wenn ja, dann werden die beiden Zahlen 
+     * getauscht.
+     * Dazu wird eine temporäre Datei (tmp) verwendet. Diese nimmt die größere Zahl und nimmt den wert an. Die
+     * kleinere Zahl nimmt den Wert der größeren Zahl an und die Datei, die die kleinere Zahl hatte, nimmt den Wert der
+     * temporären Datei an, die den Wert der größeren Zahl hatte.
+     * 
+     * Wenn fertig geprüft, bzw getauscht wurde, werden die nächsten beiden Zahlen geprüft und Sortiert, sodass am Ende
+     * ganz rechts die größte Zahl des Arrays steht.
      */
-    public void bubblesort()
-    {   
-       //Dein Quellcode
+    public void bubblesort() 
+    {
+        for(int i = 0; i < zZahlenarray.length; i++)
+        {  
+             //loop geht komplett durch minus index minus 1, weil Zahl ganz rechts ist sortiert
+             for(int j = 0; j < zZahlenarray.length - i - 1; j++)
+              {
+                 //überprüfung ob Zahl rechts kleiner ist
+                 if(zZahlenarray[j] > zZahlenarray[j + 1])
+                 {
+                     //beide zahlen werden vertauscht
+                     int temp = zZahlenarray[j];  
+                     zZahlenarray[j] = zZahlenarray[j + 1];  
+                     zZahlenarray[j + 1] = temp;  
+                 }  
+             }  
+        } 
     }
     
     /**
@@ -133,9 +158,11 @@ public class Sortieren_Emiliano
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
+        for (int  i = 1; i <= zZahlenarray.length - 1; i++)
         {   
-            
+            if (zZahlenarray[i - 1] > zZahlenarray[i])
+            {
+            }
         }    
     }
     
