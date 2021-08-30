@@ -139,7 +139,7 @@ public class Sortieren_Amin
      * https://www.youtube.com/watch?v=ROalU379l3U und im Buch.
      * 
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
-     * muss aufgerufen worden sein.
+* muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      * 
      * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird

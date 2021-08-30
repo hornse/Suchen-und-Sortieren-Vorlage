@@ -168,7 +168,16 @@ public class Sortieren_Paul
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
-    }    
+        for (int i=0; i<zZahlenarray.length - 1; i++) {
+            for (int j=i+1; j<zZahlenarray.length; j++) {
+                if (zZahlenarray[i]>zZahlenarray[j]) {
+                    int temp=zZahlenarray[i];
+                    zZahlenarray[i]=zZahlenarray[j];
+                    zZahlenarray[j]=temp;
+                }
+            }
+}
+}
 
     /**
      * Methode lineareSuche
