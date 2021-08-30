@@ -99,7 +99,7 @@ public class Sortieren_Paul
     { 
         for(int i = 0; i < zZahlenarray.length; i++)
         {
-            zZahlenarray[i]= i +1;
+            zZahlenarray[i]=i+1;
         }
     }
 
@@ -116,7 +116,17 @@ public class Sortieren_Paul
      */
     public void bubblesort()
     {   
-        //Dein Quellcode
+        int pGroesse=zZahlenarray.length;  
+        int temp=0;  
+         for(int i=0; i<pGroesse; i++){  
+                 for(int j=1;j<(pGroesse-i); j++){  
+                          if(zZahlenarray[j-1]>zZahlenarray[j]){  
+                                 temp=zZahlenarray[j-1];  
+                                 zZahlenarray[j-1]=zZahlenarray[j];  
+                                 zZahlenarray[j]=temp;  
+                         }  
+                 }  
+         }  
     }
 
     /**
