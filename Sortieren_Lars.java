@@ -204,6 +204,24 @@ public class Sortieren_Lars
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
+        int index = 0;
+        while(index<zZahlenarray.length){
+            int inIndex = index;
+            int kleinst = zZahlenarray[inIndex];
+            while(inIndex < zZahlenarray.length-1){
+                if(zZahlenarray[inIndex+1]<kleinst){
+                    int zwischen = kleinst;
+                    kleinst = zZahlenarray[inIndex+1];
+                    zZahlenarray[inIndex +1] = zwischen;
+                    
+                }
+                inIndex++;
+            }
+            zZahlenarray[index] = kleinst;
+            index ++;
+           
+        }
+        
     }    
     
     
