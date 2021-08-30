@@ -168,11 +168,11 @@
                 int Zahl = zZahlenarray[index]; // einzuordnende Zahl
                 int einIndex = index; //einzuordner Index -->
                 boolean abbruch = false;
-                while(einIndex>0 && abbruch){
+                while(einIndex>0 && !abbruch){
                     if (Zahl<zZahlenarray[einIndex-1]){
                        einIndex--; 
                     }else{
-                        abbruch = false;
+                        abbruch = true;
                     }
                 }
                 int zwischenVor = zZahlenarray[einIndex]; // Wert vor Vertauschung der verschwidet
