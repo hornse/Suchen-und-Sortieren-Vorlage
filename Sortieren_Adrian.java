@@ -11,23 +11,23 @@ import java.util.Random;
  * @version 0.2
  */
 
-public class Sortieren_Adrian1
+public class Sortieren_Adrian
 {            
     
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
             
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Adrian1 
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Adrian 
     
     /**
-     * Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Adrian1()
+    public Sortieren_Adrian()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
@@ -35,13 +35,13 @@ public class Sortieren_Adrian1
     }
     
     /**
-     * 2. Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * 2. Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Adrian1(int pGroesse)
+    public Sortieren_Adrian(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
@@ -49,8 +49,8 @@ public class Sortieren_Adrian1
     }
     
     /**
-     * 3. Konstruktor der Klasse Sortieren_Adrian1. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian1 erzeugt worden. Ein Array 
+     * 3. Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
@@ -58,7 +58,7 @@ public class Sortieren_Adrian1
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Adrian1(int pGroesse, int pMaxZahl)
+    public Sortieren_Adrian(int pGroesse, int pMaxZahl)
     {  
         //Zustandvariablen werden initialisiert
         //Dein Quellcode hier
