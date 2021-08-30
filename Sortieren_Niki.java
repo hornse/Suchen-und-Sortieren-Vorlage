@@ -15,6 +15,8 @@ public class Sortieren_Niki
 {            
     
     //Deklaration der globalen Variablen/Zustandvariablen
+    private int zMaxzahl;
+    private int h;
     private int zZahlenarray[];
     private Random zZufallsgenerator;
             
@@ -62,6 +64,9 @@ public class Sortieren_Niki
     {  
         //Zustandvariablen werden initialisiert
         //Dein Quellcode hier
+        zZahlenarray = new int [pGroesse];
+        zZufallsgenerator = new Random();
+        zMaxzahl = pMaxZahl;
     }
     
     /**
@@ -124,6 +129,18 @@ public class Sortieren_Niki
     public void bubblesort()
     {   
        //Dein Quellcode
+       int h = 0;
+       
+       for (int i=0; i<zZahlenarray.length;i++)
+            for (int j=0; j<zZahlenarray.length-1;j++)
+            {   
+                if (zZahlenarray[j] < zZahlenarray[j + 1])
+                {
+                    h = zZahlenarray[j];
+                    zZahlenarray[j] = zZahlenarray[j+1];
+                    zZahlenarray[j+1] = h;
+                }
+            }
     }
     
     /**
