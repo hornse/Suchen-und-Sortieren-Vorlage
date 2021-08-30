@@ -113,6 +113,10 @@ public class Sortieren_Jodie
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * 
+     * Beim Bubblesort wird die im Array links stehenden Zahl mit der rechts stehenden Zahl verglichen, wenn die links stehende Zahl
+     * kleiner ist werden die Zahlen vertauscht.
+     * 
      */
     public void bubblesort()
     {   
@@ -137,6 +141,9 @@ public class Sortieren_Jodie
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * 
+     * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird
+     * bis eine kleinere gefunden wurde. Falls eine gefunden wird werden sie getauscht und es wird zur nächsten Zahl übergegangen.
      */
     public void insertionsort()
     {   
@@ -164,7 +171,9 @@ public class Sortieren_Jodie
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
+     * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links durchgeführt wird.
      */
+   
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
@@ -184,6 +193,9 @@ public class Sortieren_Jodie
      *
      * @param pZahl Angabe der zu suchenden zahl
      * @return true wenn die Zahl gefunden wurde, sonst false
+     * 
+     *  Es wird durch das Array durgegangen und die übergebene Zahl mit der vom Nutzer eingeben Zahl verglichen.
+     * 
      */
     public boolean lineareSuche(int pZahl)
     {   for ( int i = 0; i < zZahlenarray.length; i++) {    
