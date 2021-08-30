@@ -141,10 +141,15 @@ public class Sortieren_Amin
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
-        {   
-
-        }    
+        for (int i = 1; i < zZahlenarray.length; i++) {
+            int temp = zZahlenarray[i];
+            int j = i;
+            while (j > 0 && zZahlenarray[j - 1] > temp) {
+                zZahlenarray[j] = zZahlenarray[j - 1];
+                j--;
+            }
+            zZahlenarray[j] = temp;
+        }
     }
 
     /**
@@ -160,7 +165,15 @@ public class Sortieren_Amin
      */
     public void selectionSort()
     {
-        //Tipp: Auch hier werden 2 Schleifen benötigt
+        for (int i = 0; i < zZahlenarray.length - 1; i++) {
+            for (int j = i + 1; j < zZahlenarray.length; j++) {
+                if (zZahlenarray[i] > zZahlenarray[j]) {
+                    int temp = zZahlenarray[i];
+                    zZahlenarray[i] = zZahlenarray[j];
+                    zZahlenarray[j] = temp;
+                }
+            }
+        }
     }    
 
     /**
@@ -178,7 +191,7 @@ public class Sortieren_Amin
         }
         return false;
     }    
-    
+
     public void print() {
         for(int i = 0; i<zZahlenarray.length; i++) {
             System.out.println(zZahlenarray[i]);
