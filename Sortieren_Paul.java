@@ -11,7 +11,7 @@ import java.util.Random;
  * @version 0.1
  */
 
-public class Sortieren_Amin
+public class Sortieren_Paul
 {            
 
     //Deklaration der globalen Variablen/Zustandvariablen
@@ -27,7 +27,7 @@ public class Sortieren_Amin
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin()
+    public Sortieren_Paul()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
@@ -41,7 +41,7 @@ public class Sortieren_Amin
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Amin(int pGroesse)
+    public Sortieren_Paul(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
@@ -58,10 +58,10 @@ public class Sortieren_Amin
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Amin(int pGroesse, int pMaxZahl)
+    public Sortieren_Paul(int pGroesse, int pMaxZahl)
     {  
-        zZahlenarray = new int [pGroesse];
-        zZufallsgenerator = new Random(); 
+        zZahlenarray=new int [pGroesse];
+        zZufallsgenerator=new Random(); 
         bfmsZufallflex(pMaxZahl);
     }
 
@@ -72,8 +72,8 @@ public class Sortieren_Amin
      */
     public void bfmsZufall()
     {         
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
+        for(int i=0; i<zZahlenarray.length; i++) {
+            zZahlenarray[i]=zZufallsgenerator.nextInt(1000);
         }
     }
 
@@ -84,8 +84,8 @@ public class Sortieren_Amin
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
+        for(int i=0; i<zZahlenarray.length; i++) {
+            zZahlenarray[i]=zZufallsgenerator.nextInt(pMaxZahl);
         }
     }
 
@@ -116,15 +116,7 @@ public class Sortieren_Amin
      */
     public void bubblesort()
     {   
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            for(int j = 0; j< zZahlenarray.length-1; j++) {
-                if(zZahlenarray[j]>zZahlenarray[j+1]) {
-                    int temp = zZahlenarray[j];
-                    zZahlenarray[j] = zZahlenarray[j+1];
-                    zZahlenarray[j+1] = temp;
-                }
-            }
-        }
+        //Dein Quellcode
     }
 
     /**
@@ -141,15 +133,10 @@ public class Sortieren_Amin
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i = 1; i < zZahlenarray.length; i++) {
-            int temp = zZahlenarray[i];
-            int j = i;
-            while (j > 0 && zZahlenarray[j - 1] > temp) {
-                zZahlenarray[j] = zZahlenarray[j - 1];
-                j--;
-            }
-            zZahlenarray[j] = temp;
-        }
+        for (int i=1; i<=zZahlenarray.length-1; i++)
+        {   
+            
+        }   
     }
 
     /**
@@ -165,15 +152,7 @@ public class Sortieren_Amin
      */
     public void selectionSort()
     {
-        for (int i = 0; i < zZahlenarray.length - 1; i++) {
-            for (int j = i + 1; j < zZahlenarray.length; j++) {
-                if (zZahlenarray[i] > zZahlenarray[j]) {
-                    int temp = zZahlenarray[i];
-                    zZahlenarray[i] = zZahlenarray[j];
-                    zZahlenarray[j] = temp;
-                }
-            }
-        }
+        //Tipp: Auch hier werden 2 Schleifen benötigt
     }    
 
     /**
@@ -184,17 +163,7 @@ public class Sortieren_Amin
      */
     public boolean lineareSuche(int pZahl)
     {      
-        for(int i : zZahlenarray) {
-            if(i == pZahl) {
-                return true;
-            }
-        }
+        //
         return false;
-    }    
-
-    public void print() {
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            System.out.println(zZahlenarray[i]);
-        }
     }
 }
