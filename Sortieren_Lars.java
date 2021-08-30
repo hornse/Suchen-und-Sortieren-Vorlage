@@ -129,7 +129,24 @@ public class Sortieren_Lars
     public void bubblesort()
     {   
        //Dein Quellcode
+       int index = 0;
+       // Äußere Schleife
+       while (index < zZahlenarray.length){
+           int inIndex = 1;
+           while(inIndex < zZahlenarray.length -index){
+               if(zZahlenarray[inIndex]<zZahlenarray[inIndex-1]){
+                int zwischen = zZahlenarray[inIndex];
+                zZahlenarray[inIndex] = zZahlenarray[inIndex -1];
+                zZahlenarray[inIndex-1] = zwischen;
+                
+                
+                
+                }
+                inIndex++;
+            }
+            index++;
        
+        }
     }
     
     /**
@@ -146,10 +163,31 @@ public class Sortieren_Lars
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
-        {   
+        int index = 1;
+        while(index < zZahlenarray.length){
+            int Zahl = zZahlenarray[index]; // einzuordnende Zahl
+            int einIndex = index; //einzuordner Index --> 
+            while(einIndex>0){
+            if (Zahl<zZahlenarray[einIndex-1]){
+               einIndex--; 
+            }else{
+                break;
+            }
+        }
+        int zwischenVor = zZahlenarray[einIndex]; // Wert vor Vertauschung der verschwidet
+        int zwischenNach = Zahl;
+        while(einIndex <= index){
+            zwischenVor = zZahlenarray[einIndex];
+            zZahlenarray[einIndex] = zwischenNach;
+            zwischenNach = zwischenVor;
+            einIndex ++;
             
-        }    
+             
+        }
+           index++;
+        }
+       
+        
     }
     
     /**
