@@ -80,7 +80,10 @@ public class Sortieren_Lars
         //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
         // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
         // von 0 - 1000
-    }
+        for(int i=0; i<zZahlenarray.length; i++){
+            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
+        } 
+        }
     
     /**
      * Methode bfmsZufallflex
@@ -90,6 +93,10 @@ public class Sortieren_Lars
     public void bfmsZufallflex(int pMaxZahl)
     {
        // Dein Quellcode hier
+       for(int i=0; i<zZahlenarray.length; i++){
+            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
+            
+        }
     }
 
 
@@ -122,6 +129,7 @@ public class Sortieren_Lars
     public void bubblesort()
     {   
        //Dein Quellcode
+       
     }
     
     /**
