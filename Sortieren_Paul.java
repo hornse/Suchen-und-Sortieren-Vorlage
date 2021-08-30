@@ -123,7 +123,7 @@ public class Sortieren_Paul
                           if(zZahlenarray[j-1]>zZahlenarray[j]){  
                                  temp=zZahlenarray[j-1];  
                                  zZahlenarray[j-1]=zZahlenarray[j];  
-                                 zZahlenarray[j]=0;  
+                                 zZahlenarray[j]=temp;  
                          }  
                  }  
          }  
