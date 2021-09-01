@@ -128,6 +128,26 @@ public class Sortieren_Paul
                  }  
          }  
     }
+    public void optimized_bubblesort()
+    {   
+        int pGroesse=zZahlenarray.length;  
+        int temp=0;  
+        boolean Ende=false;
+        do{
+         for(int i=0; i<pGroesse; i++){  
+                 for(int j=1;j<(pGroesse-i); j++){  
+                          if(zZahlenarray[j-1]>zZahlenarray[j]){  
+                                 temp=zZahlenarray[j-1];  
+                                 zZahlenarray[j-1]=zZahlenarray[j];  
+                                 zZahlenarray[j]=temp;  
+                         }  
+                         else{
+                                 Ende=true;
+                         }  
+                 }  
+         }  
+        }while (Ende=false);
+    }
 
     /**
      * Method insertionsort
