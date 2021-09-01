@@ -10,7 +10,6 @@ import java.util.Random;
  * @author Sebastian Horn
  * @version 0.2
  */
-
 public class Sortieren_Emiliano
 {            
     
@@ -158,12 +157,19 @@ public class Sortieren_Emiliano
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int  i = 1; i <= zZahlenarray.length - 1; i++)
-        {   
-            if (zZahlenarray[i - 1] > zZahlenarray[i])
+        for (int i = 1; i<= zZahlenarray.length - 1; i++)
+        {  
+            int temp = zZahlenarray[i];
+            int j = i;
+            //überprüfung ob Zahl links größer als rechts ist
+            while (j > 0 && zZahlenarray[j - 1] > temp)
             {
+                //vertauschen beide Zahlen und dann 1 nach links
+                zZahlenarray[j] = zZahlenarray[j - 1];
+                j--;
             }
-        }    
+            zZahlenarray[j] = temp;
+        }
     }
     
     /**
@@ -179,7 +185,24 @@ public class Sortieren_Emiliano
      */
     public void selectionSort()
     {
-        //Tipp: Auch hier werden 2 Schleifen benötigt
+        for(int i = 0; i < zZahlenarray.length - 1; i++)
+        {
+            //deklaration vom Index mit der kleinsten Zahl
+            int lowest = i;
+            //gehen durch restlichen Array und suchen kleinere Zahl
+            for(int j = i + 1; j < zZahlenarray.length; j++)
+            {  
+                if(zZahlenarray[j] < zZahlenarray[lowest])
+                {
+                    //deklaration vom Index mit aktueller kleinsten Zahl
+                    lowest = j;
+                }
+            }
+            //vertauschen aktuellen Ińdex mit dem kleinsten
+            int temp = zZahlenarray[i];
+            zZahlenarray[i] = zZahlenarray[lowest];  
+            zZahlenarray[lowest] = temp;
+        }
     }    
     
     
