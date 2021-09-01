@@ -1,5 +1,6 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
+import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -17,6 +18,7 @@ public class Sortieren_Jodie
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
+    
 
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
 
@@ -119,25 +121,24 @@ public class Sortieren_Jodie
      * 
      */
     public void bubblesort()
-    {   
-     
-        for(int i = 0; i< zZahlenarray.length; i++ ) {
-            boolean sortiert = true;
-            for(int j = 0; j< zZahlenarray.length-1; j++ ) {
+    {   boolean sortiert = false;
+        while ( !sortiert)
+           
+         {
+            sortiert = true;
+            for (int j = 0; j< zZahlenarray.length-1; j++) {
                 if(zZahlenarray[j]> zZahlenarray[j+1]) {
                     int temp = zZahlenarray[j];
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
                     sortiert = false;
                 }
-                if (sortiert)
-                {
-                return;
-                }
                 
             }
+            
         }
     }
+
 
     /**
      * Method insertionsort
@@ -212,6 +213,15 @@ public class Sortieren_Jodie
         }
     }
         return false;
+    }
+    /**
+    * Methode print
+    *
+    * Das Array wird in der Konsole ausgegeben
+    */    
+
+    public void print() {
+        System.out.println(Arrays.toString(zZahlenarray));
     }
 }
 
