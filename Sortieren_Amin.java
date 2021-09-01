@@ -120,8 +120,9 @@ public class Sortieren_Amin
      * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
     public void bubblesort() {
-        for(int i = 0; i<zZahlenarray.length; i++) {
-            boolean finished = true;
+        boolean finished = false;
+        while(!finished) {
+            finished = true;
             for(int j = 0; j< zZahlenarray.length-1; j++) {
                 if(zZahlenarray[j]>zZahlenarray[j+1]) {
                     int temp = zZahlenarray[j];
@@ -130,7 +131,6 @@ public class Sortieren_Amin
                     finished = false;
                 }
             }
-            if(finished) return;
         }
     }
 
@@ -142,7 +142,7 @@ public class Sortieren_Amin
      * https://www.youtube.com/watch?v=ROalU379l3U und im Buch.
      * 
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
-* muss aufgerufen worden sein.
+     * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      * 
      * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird
@@ -206,7 +206,7 @@ public class Sortieren_Amin
         }
         return false;
     }
-    
+
     /**
      * Initiale Sortiermethode fuer den Quicksort-Algorithmus
      */
@@ -219,7 +219,7 @@ public class Sortieren_Amin
         //zeigeElementenfolge();
         //System.out.println("--------------------------------------------------------------------");        
     } 
-    
+
     private void quicksort_intern(int pL, int pR)
     {
         int hLinks = pL;  // Hilfszeiger f¸r links
@@ -227,13 +227,12 @@ public class Sortieren_Amin
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
         //dein Quellcode hier
     }
-    
-    
+
     /**
-    * Methode print
-    *
-    * Das Array wird in der Konsole ausgegeben
-    */    
+     * Methode print
+     *
+     * Das Array wird in der Konsole ausgegeben
+     */    
 
     public void print() {
         System.out.println(Arrays.toString(zZahlenarray));
