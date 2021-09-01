@@ -163,7 +163,9 @@
          * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
          */
         public void insertionsort()
+        
         {   
+            
             //Tipp: i = 1
             int index = 1;
             while(index < zZahlenarray.length){
