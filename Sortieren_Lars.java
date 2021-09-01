@@ -131,14 +131,16 @@
            //Dein Quellcode
            int index = 0;
            // Äußere Schleife
-           while (index < zZahlenarray.length){
+           boolean flac = true;
+           while (index < zZahlenarray.length && flac){
                int inIndex = 1;
+               flac = false;
                while(inIndex < zZahlenarray.length -index){
                    if(zZahlenarray[inIndex]<zZahlenarray[inIndex-1]){
                     int zwischen = zZahlenarray[inIndex];
                     zZahlenarray[inIndex] = zZahlenarray[inIndex -1];
                     zZahlenarray[inIndex-1] = zwischen;
-                    
+                    flac = true;
                     
                     
                     }
