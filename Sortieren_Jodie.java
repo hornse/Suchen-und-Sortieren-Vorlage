@@ -120,13 +120,21 @@ public class Sortieren_Jodie
      */
     public void bubblesort()
     {   
-        for(int i = 0; i< zZahlenarray.length; i++) {
-            for(int j = 0; j< zZahlenarray.length-1; j++) {
+     
+        for(int i = 0; i< zZahlenarray.length; i++ ) {
+            boolean sortiert = true;
+            for(int j = 0; j< zZahlenarray.length-1; j++ ) {
                 if(zZahlenarray[j]> zZahlenarray[j+1]) {
                     int temp = zZahlenarray[j];
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
+                    sortiert = false;
                 }
+                if (sortiert)
+                {
+                return;
+                }
+                
             }
         }
     }
