@@ -126,21 +126,64 @@ public class Sortieren_Emiliano
      */
     public void bubblesort() 
     {
-        for(int i = 0; i < zZahlenarray.length; i++)
-        {  
-             //loop geht komplett durch minus index minus 1, weil Zahl ganz rechts ist sortiert
-             for(int j = 0; j < zZahlenarray.length - i - 1; j++)
-              {
-                 //überprüfung ob Zahl rechts kleiner ist
-                 if(zZahlenarray[j] > zZahlenarray[j + 1])
-                 {
-                     //beide zahlen werden vertauscht
-                     int temp = zZahlenarray[j];  
-                     zZahlenarray[j] = zZahlenarray[j + 1];  
-                     zZahlenarray[j + 1] = temp;  
-                 }  
-             }  
-        } 
+        boolean fertig = false;
+        do
+        {
+            for(int i = 0; i < zZahlenarray.length; i++)
+            {
+                //loop geht komplett durch minus index minus 1, weil Zahl ganz rechts ist sortiert
+                for(int j = 0; j < zZahlenarray.length - i - 1; j++)
+                {
+                    //überprüfung ob Zahl rechts kleiner ist
+                    if(zZahlenarray[j] > zZahlenarray[j + 1])
+                    {
+                        //beide zahlen werden vertauscht
+                        int temp = zZahlenarray[j];  
+                        zZahlenarray[j] = zZahlenarray[j + 1];  
+                        zZahlenarray[j + 1] = temp;
+                        fertig = true;
+                    }  
+                }  
+            } 
+            fertig = true;
+        } while (fertig == false);
+    }
+    
+     /**
+     * Method bubblesort
+     * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
+     * 
+     * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!! Hilfe zum Prinzip findest du unter:
+     * https://www.youtube.com/watch?v=lyZQPjUT5B4 und im Buch!!!!!
+     * 
+     * Die erste for-Schleife nimmt die erste Zahl vom Array. Die zweite for-Schleife nimmt die zweite
+     * Zahl vom Array und vergleicht sie mit der ersten, ob sie größer ist als die erste, wenn ja, dann werden die beiden Zahlen 
+     * getauscht.
+     * Dazu wird eine temporäre Datei (tmp) verwendet. Diese nimmt die größere Zahl und nimmt den wert an. Die
+     * kleinere Zahl nimmt den Wert der größeren Zahl an und die Datei, die die kleinere Zahl hatte, nimmt den Wert der
+     * temporären Datei an, die den Wert der größeren Zahl hatte.
+     * 
+     * Wenn fertig geprüft, bzw getauscht wurde, werden die nächsten beiden Zahlen geprüft und Sortiert, sodass am Ende
+     * ganz rechts die größte Zahl des Arrays steht.
+     */
+    public void biúbblesortOptimiert()
+    {
+        boolean fertig;
+        int temp;
+        do
+        {
+            fertig = false;
+            for(int i = 0; i < zZahlenarray.length; i++)
+            {
+                if(zZahlenarray[i] > zZahlenarray[i + 1])
+                {
+                    fertig = true;
+                    temp = zZahlenarray[i];
+                    zZahlenarray[i] = zZahlenarray[i + 1];
+                    zZahlenarray[i + 1] = temp;
+                }
+            }
+        } while (fertig == false);
     }
     
     /**
