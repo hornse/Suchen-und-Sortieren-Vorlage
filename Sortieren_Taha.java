@@ -135,6 +135,32 @@ public class Sortieren_Taha
              }  
          }  
     }
+
+    public void bubblesort_2()
+    {   
+        // dieser loop geht einmal durch den array durch
+        for(int i = 0; i < zZahlenarray.length; i++){  
+             boolean sort = false;
+             /**
+              * dieser loop geht immer bis zu dem array bis zu dem ende minus dem index,
+              * da nach einem durchgang die letzte zahl sortiert ist
+              * und - 1, da neben rechts der letzten zahl nichts ist
+              */
+             //for(int j = 0; j < zZahlenarray.length - i - 1; j++){ 
+             int j = 0;
+             while(!sort && j < zZahlenarray.length - i - 1) {
+                 // wir gucken ob die zahl rechts neben von dem aktuellen index kleiner ist
+                 if(zZahlenarray[j] > zZahlenarray[j + 1]){   
+                     // wir vertauschen die beiden zahlen
+                     int temp = zZahlenarray[j];  
+                     zZahlenarray[j] = zZahlenarray[j + 1];  
+                     zZahlenarray[j + 1] = temp;
+                     sort = true;
+                 }  
+                 j++;
+             }  
+         }  
+    }
     
     /**
      * Method insertionsort
