@@ -11,23 +11,25 @@ import java.util.Random;
  * @version 0.2
  */
 
-public class Sortieren
+public class Sortieren_Erica
 {            
     
     //Deklaration der globalen Variablen/Zustandvariablen
+    private int zMaxZahl;
+    private int s;
     private int zZahlenarray[];
     private Random zZufallsgenerator;
             
-    //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
+    //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Erica 
     
     /**
-     * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * Konstruktor der Klasse Sortieren_Erica. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Erica erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren()
+    public Sortieren_Erica()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
@@ -35,13 +37,13 @@ public class Sortieren
     }
     
     /**
-     * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * 2. Konstruktor der Klasse Sortieren_Erica. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Erica erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren(int pGroesse)
+    public Sortieren_Erica(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
@@ -49,8 +51,8 @@ public class Sortieren
     }
     
     /**
-     * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
-     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
+     * 3. Konstruktor der Klasse Sortieren_Erica. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Erica erzeugt worden. Ein Array 
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
@@ -58,10 +60,13 @@ public class Sortieren
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren(int pGroesse, int pMaxZahl)
+    public Sortieren_Erica(int pGroesse, int pMaxZahl)
     {  
         //Zustandvariablen werden initialisiert
         //Dein Quellcode hier
+        zZahlenarray = new int [pGroesse];
+        zZufallsgenerator = new Random();
+        zMaxZahl = pMaxZahl;
     }
     
     /**
@@ -74,6 +79,10 @@ public class Sortieren
         //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
         // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
         // von 0 - 1000
+        for (int i=0; i<zZahlenarray.length; i++)
+        {
+            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
+        }
     }
     
     /**
@@ -84,6 +93,10 @@ public class Sortieren
     public void bfmsZufallflex(int pMaxZahl)
     {
        // Dein Quellcode hier
+       for (int i=0; i<zZahlenarray.length; i++)
+        {
+            zZahlenarray[i] = zZufallsgenerator.nextInt(zMaxZahl);
+        }
     }
 
 
@@ -116,6 +129,20 @@ public class Sortieren
     public void bubblesort()
     {   
        //Dein Quellcode
+       int s = 0;
+       
+       for (int i=0; i<zZahlenarray.length; i++)
+       {
+           for (int j=0; j<zZahlenarray.length-1; j++)
+           {
+               if(zZahlenarray[j] > zZahlenarray[j+1])
+               {
+                    s = zZahlenarray[j];
+                    zZahlenarray[j] = zZahlenarray[j+1];
+                    zZahlenarray[j+1] = s;
+               }
+           }
+       }
     }
     
     /**
@@ -132,8 +159,15 @@ public class Sortieren
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
+        int s = 0;
+        for (int i=1; i>=zZahlenarray.length-1; i++)
         {   
+            if (zZahlenarray[i]>zZahlenarray[i+1])
+            {
+                s = zZahlenarray[i];
+                zZahlenarray[i+1] = zZahlenarray[i];
+                zZahlenarray[i] = s;
+            }
             
         }    
     }
@@ -152,6 +186,10 @@ public class Sortieren
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
+        for (int i=0; i>=zZahlenarray.length; i++)
+        {
+            
+        }
     }    
     
     
@@ -165,26 +203,5 @@ public class Sortieren
     {      
        //
        return false;
-    } 
-    
-    /**
-     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
-     */
-    public void quickSort()
-    {
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
-        //zeigeElementenfolge();
-        quicksort_intern(0, zZahlenarray.length-1);        
-        //zeigeElementenfolge();
-        //System.out.println("--------------------------------------------------------------------");        
-    } 
-    
-    private void quicksort_intern(int pL, int pR)
-    {
-        int hLinks = pL;  // Hilfszeiger f¸r links
-        int hRechts = pR; // Hilfszeiger f¸r rechts
-        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
-        //dein Quellcode hier
-    }
+    }    
 }
