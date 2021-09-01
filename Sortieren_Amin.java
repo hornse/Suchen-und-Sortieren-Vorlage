@@ -1,5 +1,6 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
+//Das Java Paket Arrays wird benötigt, um das Array zu einem String zu konvertieren um es in der konsole auszugeben.
 import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
@@ -118,9 +119,7 @@ public class Sortieren_Amin
      * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
      * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
-    public int bubblesort()
-    {
-        int operations = 0;
+    public void bubblesort() {
         for(int i = 0; i<zZahlenarray.length; i++) {
             boolean finished = true;
             for(int j = 0; j< zZahlenarray.length-1; j++) {
@@ -128,13 +127,11 @@ public class Sortieren_Amin
                     int temp = zZahlenarray[j];
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
-                    operations++;
                     finished = false;
                 }
             }
-            if(finished) return operations;
+            if(finished) return;
         }
-        return operations;
     }
 
     /**
@@ -209,6 +206,29 @@ public class Sortieren_Amin
         }
         return false;
     }
+    
+    /**
+     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
+     */
+    public void quickSort()
+    {
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        //zeigeElementenfolge();
+        quicksort_intern(0, zZahlenarray.length-1);        
+        //zeigeElementenfolge();
+        //System.out.println("--------------------------------------------------------------------");        
+    } 
+    
+    private void quicksort_intern(int pL, int pR)
+    {
+        int hLinks = pL;  // Hilfszeiger f¸r links
+        int hRechts = pR; // Hilfszeiger f¸r rechts
+        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        //dein Quellcode hier
+    }
+    
+    
     /**
     * Methode print
     *
