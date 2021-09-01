@@ -118,17 +118,23 @@ public class Sortieren_Amin
      * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
      * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
-    public void bubblesort()
-    {   
+    public int bubblesort()
+    {
+        int operations = 0;
         for(int i = 0; i<zZahlenarray.length; i++) {
+            boolean finished = true;
             for(int j = 0; j< zZahlenarray.length-1; j++) {
                 if(zZahlenarray[j]>zZahlenarray[j+1]) {
                     int temp = zZahlenarray[j];
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
+                    operations++;
+                    finished = false;
                 }
             }
+            if(finished) return operations;
         }
+        return operations;
     }
 
     /**
