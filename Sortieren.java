@@ -165,5 +165,26 @@ public class Sortieren
     {      
        //
        return false;
-    }    
+    } 
+    
+    /**
+     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
+     */
+    public void quickSort()
+    {
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        //zeigeElementenfolge();
+        quicksort_intern(0, zZahlenarray.length-1);        
+        //zeigeElementenfolge();
+        //System.out.println("--------------------------------------------------------------------");        
+    } 
+    
+    private void quicksort_intern(int pL, int pR)
+    {
+        int hLinks = pL;  // Hilfszeiger f¸r links
+        int hRechts = pR; // Hilfszeiger f¸r rechts
+        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        //dein Quellcode hier
+    }
 }
