@@ -16,7 +16,6 @@ public class Sortieren_Niki
     
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zMaxzahl;
-    private int h;
     private int zZahlenarray[];
     private Random zZufallsgenerator;
             
@@ -129,20 +128,23 @@ public class Sortieren_Niki
     public void bubblesort()
     {   
        //Dein Quellcode
-       int h = 0;
-       
-       for (int i=0; i<zZahlenarray.length;i++)
-            for (int j=0; j<zZahlenarray.length-1;j++)
-            {   
-                if (zZahlenarray[j] < zZahlenarray[j + 1])
-                {
-                    h = zZahlenarray[j];
-                    zZahlenarray[j] = zZahlenarray[j+1];
-                    zZahlenarray[j+1] = h;
-                }
-            }
+       for(int i = 0; i < zZahlenarray.length; i++){  
+             /**
+              * dieser loop geht immer bis zu dem array bis zu dem ende minus dem index,
+              * da nach einem durchgang die letzte zahl sortiert ist
+              * und - 1, da neben rechts der letzten zahl nichts ist
+              */
+             for(int j = 0; j < zZahlenarray.length - i - 1; j++){  
+                 // wir gucken ob die zahl rechts neben von dem aktuellen index kleiner ist
+                 if(zZahlenarray[j] > zZahlenarray[j + 1]){   
+                     // wir vertauschen die beiden zahlen
+                     int temp = zZahlenarray[j];  
+                     zZahlenarray[j] = zZahlenarray[j + 1];  
+                     zZahlenarray[j + 1] = temp;  
+                 }  
+             }  
+         }  
     }
-    
     /**
      * Method insertionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -157,9 +159,16 @@ public class Sortieren_Niki
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
+        for (int i = 1; i <= zZahlenarray.length - 1; i++)
         {   
-            
+            if(zZahlenarray[i - 1] > zZahlenarray[i]) {
+                while( (i > -1) && zZahlenarray[i - 1] > zZahlenarray[i]) {
+                    int temp = zZahlenarray[i];  
+                    zZahlenarray[i] = zZahlenarray[i - 1];  
+                    zZahlenarray[i - 1] = temp;  
+                    i--;
+                }
+            }    
         }    
     }
     
@@ -177,6 +186,17 @@ public class Sortieren_Niki
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
+        for(int i = 0; i < zZahlenarray.length - 1; i++) { 
+            int lowest = i;
+            for(int j = i + 1; j < zZahlenarray.length; j++) {  
+                if(zZahlenarray[j] < zZahlenarray[lowest]){
+                    lowest = j;
+                }
+            }
+            int temp = zZahlenarray[i];
+            zZahlenarray[i] = zZahlenarray[lowest];  
+            zZahlenarray[lowest] = temp;
+        }
     }    
     
     
@@ -188,7 +208,11 @@ public class Sortieren_Niki
      */
     public boolean lineareSuche(int pZahl)
     {      
-       //
-       return false;
+       for(int i = 0; i < zZahlenarray.length; i++){    
+            if(zZahlenarray[i] == pZahl){    
+                return true;    
+            }
+        }    
+        return false;
     }    
 }
