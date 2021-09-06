@@ -187,4 +187,47 @@ public class Sortieren
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
         //dein Quellcode hier
     }
+    
+    public void mergeSort()
+    {
+        
+    }
+    
+    
+    private void merge_intern(int links, int mitte, int rechts)
+    {
+        int i,j,k;
+        i = 0;
+        j = links;
+        int []b = new int [mitte - links +1];
+        while (j <= mitte)
+        {
+            b[i] = zZahlenarray[j];
+            i++;
+            j++;
+        }
+        i = 0;
+        k= links;
+        while(k<j && j>= rechts)
+        {
+            if(b[i] <=zZahlenarray[j])
+            {
+                zZahlenarray[k] = b[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                zZahlenarray[k] = zZahlenarray[j];
+                k++;
+                j++;
+            }
+        }
+        while(k<j)
+        {
+            zZahlenarray[k] = b[i];
+            k++;
+            i++;
+        }
+    }
 }
