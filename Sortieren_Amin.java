@@ -1,4 +1,3 @@
-//Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
 //Das Java Paket Arrays wird benötigt, um das Array zu einem String zu konvertieren um es in der konsole auszugeben.
 import java.util.Arrays;
@@ -214,10 +213,10 @@ public class Sortieren_Amin
     {
         System.out.println("--------------------------------------------------------------------");
         System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
-        //zeigeElementenfolge();
+        print();
         quicksort_intern(0, zZahlenarray.length-1);        
-        //zeigeElementenfolge();
-        //System.out.println("--------------------------------------------------------------------");        
+        print();
+        System.out.println("--------------------------------------------------------------------");        
     } 
 
     private void quicksort_intern(int pL, int pR)
@@ -225,8 +224,34 @@ public class Sortieren_Amin
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        while(hLinks<hRechts) {
+            while(hPivot > hLinks && hLinks<pR) {
+                hLinks++;
+            }
+            while(hPivot < hRechts && hRechts>pL) {
+                hRechts--;
+            }
+            if(hLinks<hRechts) {
+                int temp = zZahlenarray[hLinks];
+                zZahlenarray[hLinks] = zZahlenarray[hRechts];
+                zZahlenarray[hRechts] = temp;
+                hLinks++;
+                hRechts--;
+            }
+            int temp = zZahlenarray[hLinks];
+            zZahlenarray[hLinks] = zZahlenarray[hPivot];
+            zZahlenarray[hPivot] = temp;
+            if(pL < hRechts) {
+                quicksort_intern(pL, hRechts);
+            }
+            if(hLinks<pR) {
+                quicksort_intern(hLinks, pR);
+            }
+        }
+        
         //dein Quellcode hier
     }
+    
 
     /**
      * Methode print
