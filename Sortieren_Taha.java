@@ -1,5 +1,6 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
+import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -227,6 +228,50 @@ public class Sortieren_Taha
             zZahlenarray[lowest] = temp;
         }
     }    
+    
+    public void quickSort() {
+        System.out.println("-----------------------------");
+        System.out.println("quickSort bruder $$$$$");
+        quickSort_intern(0, zZahlenarray.length - 1);
+    }
+    
+    private void quickSort_intern(int pL, int pR) {
+        System.out.println(Arrays.toString(zZahlenarray));
+        if(pL < pR) {
+            int hPivot = (int) (Math.random()*(pR-pL+1))+pL;
+            int hLinks = pL;
+            int hRechts = pR;
+            
+            int i = pL;
+            int itemFromLeft = i;
+            while(zZahlenarray[i] <= zZahlenarray[hPivot] && i < pR) {
+                i++;
+                itemFromLeft = i;
+            }
+            
+            int j = pR;
+            int itemFromRight = j;
+            while(zZahlenarray[j] >= zZahlenarray[hPivot] && j > pL) {
+                j--;
+                itemFromRight = j;
+            }
+            
+            int temp = zZahlenarray[itemFromRight];
+            zZahlenarray[itemFromRight] = zZahlenarray[itemFromLeft];  
+            zZahlenarray[itemFromLeft] = temp;
+            
+            if(itemFromLeft > itemFromRight) {
+                int temp2 = zZahlenarray[hPivot];
+                zZahlenarray[hPivot] = zZahlenarray[itemFromLeft];  
+                zZahlenarray[itemFromLeft] = temp;
+                
+                quickSort_intern(pL, itemFromLeft - 1);
+                quickSort_intern(itemFromLeft + 1, pR);
+            }
+            
+            quickSort_intern(pL, pR);
+        }
+    }
     
     /**
      * Methode lineareSuche
