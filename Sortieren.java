@@ -230,4 +230,16 @@ public class Sortieren
             i++;
         }
     }
+    
+    public boolean binaereSuche(int pGesuchteZahl)
+    {
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+      return true;  
+    }
 }
