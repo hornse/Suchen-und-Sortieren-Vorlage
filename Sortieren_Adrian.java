@@ -54,14 +54,16 @@ public class Sortieren_Adrian
      * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
      * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
-     * 
+     * x
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
     public Sortieren_Adrian(int pGroesse, int pMaxZahl)
     {  
         //Zustandvariablen werden initialisiert
-        //Dein Quellcode hier
+        zZahlenarray = new int [pGroesse];
+        zZufallsgenerator = new Random(); 
+        bfmsZufallflex(pMaxZahl);
     }
     
     /**
@@ -138,17 +140,22 @@ public class Sortieren_Adrian
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      */
-    public void insertionsort()
-    {   
-        //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
-        {   
-            
-        }    
+    public void insertionsort() {
+    for (int i = 1; i < zZahlenarray.length; i++) {
+        if (zZahlenarray[i - 1] > zZahlenarray[i]) {
+            while ((i > -1) && (zZahlenarray[i - 1] > zZahlenarray[i])) {
+                int temp = zZahlenarray[i];
+                zZahlenarray[i] = zZahlenarray[i - 1];
+                zZahlenarray[i - 1] = temp;
+                i--;
+            }
+        }
     }
+}
+
     
     /**
-     * Method selectionsort
+     * Method selectionsort 
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
      * 
      * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!!!!! Hilfe findest du hier:
@@ -160,7 +167,7 @@ public class Sortieren_Adrian
      */
     public void selectionSort()
     {
-        //Tipp: Auch hier werden 2 Schleifen benötigt
+        
     }    
     
     
