@@ -18,10 +18,8 @@ public class Sortieren_Jodie
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
-    
 
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
-
     /**
      * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
@@ -123,8 +121,8 @@ public class Sortieren_Jodie
     public void bubblesort()
     {   boolean sortiert = false;
         while ( !sortiert)
-           
-         {
+
+        {
             sortiert = true;
             for (int j = 0; j< zZahlenarray.length-1; j++) {
                 if(zZahlenarray[j]> zZahlenarray[j+1]) {
@@ -133,12 +131,11 @@ public class Sortieren_Jodie
                     zZahlenarray[j+1] = temp;
                     sortiert = false;
                 }
-                
+
             }
-            
+
         }
     }
-
 
     /**
      * Method insertionsort
@@ -165,8 +162,7 @@ public class Sortieren_Jodie
                 j--;
             }
             zZahlenarray[j] = temp;
-            
-            
+
         }    
     }
 
@@ -182,11 +178,11 @@ public class Sortieren_Jodie
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links durchgeführt wird.
      */
-   
+
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
-         for (int i = 0; i < zZahlenarray.length - 1; i++) {
+        for (int i = 0; i < zZahlenarray.length - 1; i++) {
             for (int j = i + 1; j < zZahlenarray.length; j++) {
                 if (zZahlenarray[i] > zZahlenarray[j]) {
                     int temp = zZahlenarray[i];
@@ -208,22 +204,66 @@ public class Sortieren_Jodie
      */
     public boolean lineareSuche(int pZahl)
     {   for ( int i = 0; i < zZahlenarray.length; i++) {    
-        if ( zZahlenarray[i] == pZahl)
-        { return true;
+            if ( zZahlenarray[i] == pZahl)
+            { return true;
+            }
         }
-    }
         return false;
     }
+
     /**
-    * Methode print
-    *
-    * Das Array wird in der Konsole ausgegeben
-    */    
+     * Methode print
+     *
+     * Das Array wird in der Konsole ausgegeben
+     */    
 
     public void print() {
         System.out.println(Arrays.toString(zZahlenarray));
     }
+
+    /**
+     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
+     */
+    public void quickSort()
+    {
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        //zeigeElementenfolge();
+        quicksort_intern(0, zZahlenarray.length-1);        
+        //zeigeElementenfolge();
+        //System.out.println("--------------------------------------------------------------------");        
+    } 
+
+    private void quicksort_intern(int pL, int pR)
+    {
+        int hLinks = pL;  // Hilfszeiger f¸r links
+        int hRechts = pR; // Hilfszeiger f¸r rechts
+        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        //dein Quellcode hier
+        while ( hLinks < hRechts){ 
+            while ( zZahlenarray[hLinks] < zZahlenarray[hPivot] && hLinks < pR) {
+             hLinks++;
+            }
+            while (zZahlenarray[hPivot] <zZahlenarray[hRechts] && hRechts>pL) {
+                hRechts--;
+            }
+            if (hLinks < hRechts) {
+                int temp = zZahlenarray[hLinks];
+                zZahlenarray[hLinks] = zZahlenarray[hRechts];
+                zZahlenarray[hRechts] = temp;
+                hLinks++;
+                hRechts--;
+            }
+            int temp = zZahlenarray[hLinks];
+            zZahlenarray[hLinks] = zZahlenarray  [hPivot];
+            zZahlenarray[hPivot] = temp;
+            if (pL < hRechts){
+                quicksort_intern(pL, hRechts);
+            }
+            if (hLinks<pR) {
+                quicksort_intern(hLinks, pR);
+            }
+        }
+    }
 }
-
-
 
