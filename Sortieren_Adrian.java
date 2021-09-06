@@ -15,73 +15,73 @@ public class Sortieren_Adrian
 {            
     
     //Deklaration der globalen Variablen/Zustandvariablen
-    private int zZahlenarray[];
-    private Random zZufallsgenerator;
+    private int zzahlenarray[];
+    private Random zzufallsgenerator;
             
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Adrian 
     
     /**
-     * Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian erzeugt worden. Ein Array 
-     * mit dem Namen zZahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
-     * zur Erzeugung von Zufallszahlen erzeugt.
+     * mit dem Namen zzahlenarray und der Grösse 30 wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
+     * zur Erzeugung von zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
     public Sortieren_Adrian()
     {  
-        //Zustandvariablen werden initialisiert
-        zZahlenarray = new int [30];
-        zZufallsgenerator = new Random(); 
+        //zustandvariablen werden initialisiert
+        zzahlenarray = new int [30];
+        zzufallsgenerator = new Random(); 
     }
     
     /**
-     * 2. Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * 2. Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian erzeugt worden. Ein Array 
-     * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
-     * zur Erzeugung von Zufallszahlen erzeugt.
+     * mit dem Namen zzahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
+     * zur Erzeugung von zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
     public Sortieren_Adrian(int pGroesse)
     {  
-        //Zustandvariablen werden initialisiert
-        zZahlenarray = new int [pGroesse];
-        zZufallsgenerator = new Random(); 
+        //zustandvariablen werden initialisiert
+        zzahlenarray = new int [pGroesse];
+        zzufallsgenerator = new Random(); 
     }
     
     /**
-     * 3. Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
+     * 3. Konstruktor der Klasse Sortieren_Adrian. Im Konstruktor werden die zuvor deklarieten zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren_Adrian erzeugt worden. Ein Array 
-     * mit dem Namen zZahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
-     * zur Erzeugung von Zufallszahlen erzeugt und das Array mit Zufallszahlen im Zahlenspektrum von 0 - pMaxZahl befuellt.
+     * mit dem Namen zzahlenarray und einer variablen Groesse wurde erzeugt. Des Weiteren wurde ein Objekt der Klasse Random 
+     * zur Erzeugung von zufallszahlen erzeugt und das Array mit zufallszahlen im zahlenspektrum von 0 - pMaxzahl befuellt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      * 
      * @param int pGroesse gibt die Groesse des Arrays an
-     * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
+     * @param int pMaxzahl gibt die groesste moegliche zu erzeugenden zufallszahl an
      */
-    public Sortieren_Adrian(int pGroesse, int pMaxZahl)
+    public Sortieren_Adrian(int pGroesse, int pMaxzahl)
     {  
-        //Zustandvariablen werden initialisiert
+        //zustandvariablen werden initialisiert
         //Dein Quellcode hier
     }
     
     /**
-     * Methode bfmsZufall
-     * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
+     * Methode bfmszufall
+     * Auftrag: Nach dem Aufruf dieser Methode ist das Array zzahlenarray mit zufälligen zahlen im Spektrum 
      * von 0 - 1000 befüllt
      */
-    public void bfmsZufall()
+    public void bfmszufall()
     {         
-        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
-        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
+        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine zufallszahl im Spektrum
+        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zzufallsgenerator.nextInt(1000) erzeugt eine zufallszahl im Spektrum 
         // von 0 - 1000
     }
     
     /**
-     * Methode bfmsZufallflex
-     * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
-     * von 0 - pMaxZahl befüllt.
+     * Methode bfmszufallflex
+     * Auftrag: Nach dem Aufruf dieser Methode ist das Array zzahlenarray mit zufälligen zahlen im Spektrum 
+     * von 0 - pMaxzahl befüllt.
      */
-    public void bfmsZufallflex(int pMaxZahl)
+    public void bfmszufallflex(int pMaxzahl)
     {
        // Dein Quellcode hier
     }
@@ -89,7 +89,7 @@ public class Sortieren_Adrian
 
     /**
      * Method bfms
-     * Auftrag: Nach dem Aufruf der Methode ist das Array zZahlenarray mit aufsteigenden Zahlenwerten 
+     * Auftrag: Nach dem Aufruf der Methode ist das Array zzahlenarray mit aufsteigenden zahlenwerten 
      * beginnend bei 1 und einer Schrittweite von 1 gefuellt.
      *
      */
@@ -97,42 +97,54 @@ public class Sortieren_Adrian
     { 
         for(int i = 0; i < 30; i++)
         {
-            zZahlenarray[i]= i +1;
+            zzahlenarray[i]= i +1; 
         }
     }
     
     
     /**
      * Method bubblesort
-     * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
+     * Auftrag: Nach Aufruf der Methode ist das Array zzahlenarray nach dem Prinzip Bubblesort sortiert worden.
      * 
      * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!! Hilfe zum Prinzip findest du unter:
-     * https://www.youtube.com/watch?v=lyZQPjUT5B4 und im Buch!!!!!
+     * https://www.youtube.com/watch?v=lyzQPjUT5B4 und im Buch!!!!!
      * 
-     * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
+     * Hierfür muss das Array vorher mit zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      */
+    
+    
     public void bubblesort()
-    {   
-       //Dein Quellcode
-    }
+    {
+           for(int i = 0; i < zzahlenarray.length; i++){
+           for(int j = 0; j < zzahlenarray.length-1; j++){
+               if (zzahlenarray[j] > zzahlenarray[j+1]){
+                   int hilfint;
+                   hilfint = zzahlenarray[j];
+                   zzahlenarray[j] = zzahlenarray[j+1];
+                   zzahlenarray[j+1] = hilfint;
+               }
+           }
+       }
+    }    
+    
     
     /**
      * Method insertionsort
-     * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
+     * Auftrag: Nach Aufruf der Methode ist das Array zzahlenarray nach dem Prinzip Insertionsort sortiert worden.
      * 
      * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!!!!!Hilfe findest du hier:
      * https://www.youtube.com/watch?v=ROalU379l3U und im Buch.
      * 
-     * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
+     * Hierfür muss das Array vorher mit zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      */
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<=zZahlenarray.length-1; i++)
+        for (int i=1; i<=zzahlenarray.length-1; i++)
         {   
             
         }    
@@ -140,12 +152,12 @@ public class Sortieren_Adrian
     
     /**
      * Method selectionsort
-     * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
+     * Auftrag: Nach Aufruf der Methode ist das Array zzahlenarray nach dem Prinzip Insertionsort sortiert worden.
      * 
      * Eine ausführliche Beschreibung muss hier eurerseits erfolgen!!!!!!!!! Hilfe findest du hier:
      * https://www.youtube.com/watch?v=Ns4TPTC8whw und im Buch!!!
      * 
-     * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
+     * Hierfür muss das Array vorher mit zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      */
@@ -158,10 +170,10 @@ public class Sortieren_Adrian
     /**
      * Methode lineareSuche
      *
-     * @param pZahl Angabe der zu suchenden zahl
-     * @return true wenn die Zahl gefunden wurde, sonst false
+     * @param pzahl Angabe der zu suchenden zahl
+     * @return true wenn die zahl gefunden wurde, sonst false
      */
-    public boolean lineareSuche(int pZahl)
+    public boolean lineareSuche(int pzahl)
     {      
        //
        return false;
