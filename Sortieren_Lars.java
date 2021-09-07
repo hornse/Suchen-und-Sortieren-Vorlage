@@ -262,5 +262,55 @@
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
         //dein Quellcode hier
+        
+        if(pL<pR && hPivot>=0){ // Wenn Array Auschnitt nur ein Element ist, ist die Bedingung unwahr
+            while(hLinks!=hRechts){ // Abbruchbedingung: Wenn linkes und rechtes Element aufeinader treffen
+                if(zZahlenarray[hLinks] > zZahlenarray[hPivot] || hLinks== hPivot){ // Prüfen ob linkes Element für Tausch bereit ist
+                    if(zZahlenarray[hRechts] < zZahlenarray[hPivot] || hRechts == hPivot){ // Prüfen ob rechtes Element für Tausch bereit ist
+                        // Beide Elemente sind für Tausch bereit
+                        //Dreieckstasuch wird durchgeführt
+                        int zwischen = zZahlenarray[hRechts];
+                        zZahlenarray[hRechts] = zZahlenarray[hLinks];
+                        zZahlenarray[hLinks] = zwischen;
+                        
+                        // Ändeung der Stelle vom Pivoelement, wenn diese verändert wurde
+                        if(hLinks == hPivot){
+                            hPivot = hRechts;
+                        }
+                        
+                        else if(hRechts == hPivot){
+                            hPivot = hLinks;
+                        }
+                        
+                        // Verschiebung der Zeiger, wenn jeweiliger auf richtiger Seite vom Pivotelement
+                        if(hLinks < hPivot){
+                            hLinks ++;
+                        }
+                        
+                        if(hRechts > hPivot){
+                            hRechts --;
+                        }
+                        
+                        
+                    }else{
+                        hRechts --; // Verschiebung des rechten Zeiger wenn noch nicht für Tausch bereit
+                    }
+                    
+                }else{
+                    hLinks ++; // Verschiebung des linken Zeiger wenn noch nicht für Tausch bereit
+                    
+                    if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot){
+                        hRechts --; // Verschiebung von rechten Zeiger wenn noch nicht für Tausch bereit
+                    }
+                    
+                }
+                
+            }
+            //Rekursion Aufruf mit 2 Teil Arrays
+            quicksort_intern(pL, hPivot-1);
+            quicksort_intern(hPivot + 1, pR);
+            
+            
+        }
     }
 }
