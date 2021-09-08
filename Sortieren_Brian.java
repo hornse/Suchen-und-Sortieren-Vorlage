@@ -185,7 +185,12 @@ public class Sortieren_Brian
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
-        
+        if (pL < pR)
+        {
+          int pi = partition(zZahlenarray, pL, pR, hPivot); 
+          quicksort_intern(pL, pi-1);
+          quicksort_intern(pi+1, pR);
+        }
     }
     
     public static void tauschen(int[] array, int j, int i)
@@ -195,15 +200,29 @@ public class Sortieren_Brian
         array[j] = temp;
     }
     
-    public static void partition(int lowest,int highest, int[] array,int hPivot)
+    public static void main(String[] args){
+       Sortieren_Brian test = new Sortieren_Brian();
+       test.quickSort();
+    }
+    
+    
+    
+    public static int partition(int[] array, int lowest,int highest,int hPivot)
     {
         int teile = lowest - 1;
         for(int suche = lowest;  suche < highest; suche++)
         {
             if(array[suche] < hPivot)
+            {
+                teile++;
+                tauschen(array, teile, suche);
+            }
         }
+        
+        tauschen(array, teile+1, highest);
+        return (teile+1);
     }
-    }
+    
     public void mergeSort()
     {
         
