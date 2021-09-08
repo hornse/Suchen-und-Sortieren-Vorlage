@@ -304,10 +304,7 @@ public class Sortieren_Jodie
                 return binaereSuche(pL, mitte - 1, x);
         return binaereSuche(mitte + 1, pR, x);
         }
-<<<<<<< HEAD
-          
-=======
->>>>>>> e171ed3753c8aa59d5c0d89c8ab35dfa9b75d018
+
         return -1;
     }
     }
