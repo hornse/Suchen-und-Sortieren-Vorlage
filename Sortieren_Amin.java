@@ -217,39 +217,92 @@ public class Sortieren_Amin
         quicksort_intern(0, zZahlenarray.length-1);        
         print();
         System.out.println("--------------------------------------------------------------------");        
-    } 
-
+    }
+    
+    
+    /**
+     * Methode quicksort_intern
+     *
+     * Der Algorithmus teilt das Array durch ein Pivotelement in
+     * 2 kleinere Arrays. Dabei werden immer die Zahlen links und 
+     * rechts vom Pivotelement auf die richtige Seite gebracht
+     *
+     *
+     * @param pL linker Rand des Arrays
+     * @param pR rechter rand des Arrays
+     */
     private void quicksort_intern(int pL, int pR)
     {
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
-        while(hLinks<hRechts) {
-            while(hPivot > hLinks && hLinks<pR) {
-                hLinks++;
+
+        if(pL<pR && hPivot>=0){
+            while(hLinks!=hRechts){
+                if(zZahlenarray[hLinks] >= zZahlenarray[hPivot]){
+                    if(zZahlenarray[hRechts] <= zZahlenarray[hPivot]){
+                        int temp = zZahlenarray[hRechts];
+                        zZahlenarray[hRechts] = zZahlenarray[hLinks];
+                        zZahlenarray[hLinks] = temp;
+
+                        if(hLinks == hPivot){
+                            hPivot = hRechts;
+                        } else if(hRechts == hPivot){
+                            hPivot = hLinks;
+                        }
+
+                        if(hLinks < hPivot){
+                            hLinks ++;
+                        }
+                        if(hRechts > hPivot){
+                            hRechts--;
+                        }
+                    }else{
+                        hRechts--;
+                    }
+                }else{
+                    hLinks ++;
+                    if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot){
+                        hRechts --;
+                    }
+                }
             }
-            while(hPivot < hRechts && hRechts>pL) {
-                hRechts--;
-            }
-            if(hLinks<hRechts) {
-                int temp = zZahlenarray[hLinks];
-                zZahlenarray[hLinks] = zZahlenarray[hRechts];
-                zZahlenarray[hRechts] = temp;
-                hLinks++;
-                hRechts--;
-            }
-            int temp = zZahlenarray[hLinks];
-            zZahlenarray[hLinks] = zZahlenarray[hPivot];
-            zZahlenarray[hPivot] = temp;
-            if(pL < hRechts) {
-                quicksort_intern(pL, hRechts);
-            }
-            if(hLinks<pR) {
-                quicksort_intern(hLinks, pR);
-            }
+
+            //Spaltung des Arrays und rekursiver Aufruf
+            quicksort_intern(pL, hPivot-1);
+            quicksort_intern(hPivot + 1, pR);
+
+
         }
-        
-        //dein Quellcode hier
+    }
+    
+    
+    /**
+     * Methode binaereSuche
+     *
+     * Das sortierte Array wird durch die mitte geteilt. Falls die mittlere Zahl größer
+     * als die gesuchte ist, wird der Prozess rekursiv mit der rechten Hälfte des Arrrays
+     * wiederholt, ansonsten mit der linken.
+     *
+     * @param pL linker Rand des Arrays
+     * @param pR rechter Rand des Arrays
+     * @return Index der gesuchten Zahl. -1 Falls sie nicht vorhanden ist.
+     */
+    private int binaereSuche(int pL, int pR, int x)
+    {
+        if (pR >= pL) {
+            int mitte = pL + (pR - pL) / 2;
+
+            if (zZahlenarray[mitte] == x)
+                return mitte;
+  
+            if (zZahlenarray[mitte] > x)
+                return binaereSuche(pL, mitte - 1, x);
+  
+            return binaereSuche(mitte + 1, pR, x);
+        }
+          
+        return -1;
     }
     
 
