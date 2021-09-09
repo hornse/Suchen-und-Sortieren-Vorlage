@@ -240,6 +240,11 @@
     public boolean lineareSuche(int pZahl)
     {      
        //
+       for(int i = 0; i < zZahlenarray.length; i++){
+           if(zZahlenarray[i]== pZahl){
+               return true;
+           }
+       }
        return false;
     }    
     
