@@ -1,6 +1,5 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
-import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -9,17 +8,18 @@ import java.util.Arrays;
  * werden muss.
  * 
  * @author Sebastian Horn
- * @version 0.1
+ * @version 0.2
  */
 
-public class Sortieren_Jodie
+public class Sortieren_Brian
 {            
-
+    
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
-
+            
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
+    
     /**
      * Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
@@ -27,13 +27,13 @@ public class Sortieren_Jodie
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Jodie()
+    public Sortieren_Brian()
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
         zZufallsgenerator = new Random(); 
     }
-
+    
     /**
      * 2. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
@@ -41,13 +41,13 @@ public class Sortieren_Jodie
      * zur Erzeugung von Zufallszahlen erzeugt.
      * Es kann mehrer Konstruktoren geben, diese unterscheiden sich in den/ dem Parameter(n).
      */
-    public Sortieren_Jodie(int pGroesse)
+    public Sortieren_Brian(int pGroesse)
     {  
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
     }
-
+    
     /**
      * 3. Konstruktor der Klasse Sortieren. Im Konstruktor werden die zuvor deklarieten Zustandsvariablen
      * erzeugt. Nach dem Aufruf des Konstruktors ist ein Objekt der Klasse Sortieren erzeugt worden. Ein Array 
@@ -58,13 +58,12 @@ public class Sortieren_Jodie
      * @param int pGroesse gibt die Groesse des Arrays an
      * @param int pMaxZahl gibt die groesste moegliche zu erzeugenden Zufallszahl an
      */
-    public Sortieren_Jodie(int pGroesse, int pMaxZahl)
+    public Sortieren_Brian(int pGroesse, int pMaxZahl)
     {  
-        zZahlenarray = new int [pGroesse];
-        zZufallsgenerator = new Random(); 
-        bfmsZufallflex(pMaxZahl);
+        //Zustandvariablen werden initialisiert
+        //Dein Quellcode hier
     }
-
+    
     /**
      * Methode bfmsZufall
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -72,11 +71,11 @@ public class Sortieren_Jodie
      */
     public void bfmsZufall()
     {         
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
-        }
+        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
+        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
+        // von 0 - 1000
     }
-
+    
     /**
      * Methode bfmsZufallflex
      * Auftrag: Nach dem Aufruf dieser Methode ist das Array zZahlenarray mit zufälligen Zahlen im Spektrum 
@@ -84,10 +83,9 @@ public class Sortieren_Jodie
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-        for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
-        }
+       // Dein Quellcode hier
     }
+
 
     /**
      * Method bfms
@@ -97,12 +95,13 @@ public class Sortieren_Jodie
      */
     public void bfms()
     { 
-        for(int i = 0; i < zZahlenarray.length; i++)
+        for(int i = 0; i < 30; i++)
         {
             zZahlenarray[i]= i +1;
         }
     }
-
+    
+    
     /**
      * Method bubblesort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
@@ -113,30 +112,12 @@ public class Sortieren_Jodie
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Beim Bubblesort wird die im Array links stehenden Zahl mit der rechts stehenden Zahl verglichen, wenn die links stehende Zahl
-     * kleiner ist werden die Zahlen vertauscht.
-     * 
      */
     public void bubblesort()
-    {   boolean sortiert = false;
-        while ( !sortiert)
-
-        {
-            sortiert = true;
-            for (int j = 0; j< zZahlenarray.length-1; j++) {
-                if(zZahlenarray[j]> zZahlenarray[j+1]) {
-                    int temp = zZahlenarray[j];
-                    zZahlenarray[j] = zZahlenarray[j+1];
-                    zZahlenarray[j+1] = temp;
-                    sortiert = false;
-                }
-
-            }
-
-        }
+    {   
+       //Dein Quellcode
     }
-
+    
     /**
      * Method insertionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -147,25 +128,16 @@ public class Sortieren_Jodie
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * 
-     * Insertionsort arbeitet, indem immer eine Zahl abgespeichert wird und sie dann mit jeder anderen Zahl verglichen wird
-     * bis eine kleinere gefunden wurde. Falls eine gefunden wird werden sie getauscht und es wird zur nächsten Zahl übergegangen.
      */
     public void insertionsort()
     {   
         //Tipp: i = 1
-        for (int i=1; i<= zZahlenarray.length-1; i++)
-        {   int temp = zZahlenarray[i];
-            int j = i;
-            while (j > 0 && zZahlenarray[j - 1] > temp) {
-                zZahlenarray[j] = zZahlenarray[j - 1];
-                j--;
-            }
-            zZahlenarray[j] = temp;
-
+        for (int i=1; i<=zZahlenarray.length-1; i++)
+        {   
+            
         }    
     }
-
+    
     /**
      * Method selectionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -176,51 +148,25 @@ public class Sortieren_Jodie
      * Hierfür muss das Array vorher mit Zahlenwerten gefüllt worden sein d.h. eine der Methoden zum Befüllen des Arrays
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
-     * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links durchgeführt wird.
      */
-
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
-        for (int i = 0; i < zZahlenarray.length - 1; i++) {
-            for (int j = i + 1; j < zZahlenarray.length; j++) {
-                if (zZahlenarray[i] > zZahlenarray[j]) {
-                    int temp = zZahlenarray[i];
-                    zZahlenarray[i] = zZahlenarray[j];
-                    zZahlenarray[j] = temp;
-                }
-            }
-        }
     }    
-
+    
+    
     /**
      * Methode lineareSuche
      *
      * @param pZahl Angabe der zu suchenden zahl
      * @return true wenn die Zahl gefunden wurde, sonst false
-     * 
-     *  Es wird durch das Array durgegangen und die übergebene Zahl mit der vom Nutzer eingeben Zahl verglichen.
-     * 
      */
     public boolean lineareSuche(int pZahl)
-    {   for ( int i = 0; i < zZahlenarray.length; i++) {    
-            if ( zZahlenarray[i] == pZahl)
-            { return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Methode print
-     *
-     * Das Array wird in der Konsole ausgegeben
-     */    
-
-    public void print() {
-        System.out.println(Arrays.toString(zZahlenarray));
-    }
-
+    {      
+       //
+       return false;
+    } 
+    
     /**
      * Initiale Sortiermethode fuer den Quicksort-Algorithmus
      */
@@ -231,80 +177,104 @@ public class Sortieren_Jodie
         //zeigeElementenfolge();
         quicksort_intern(0, zZahlenarray.length-1);        
         //zeigeElementenfolge();
-        //System.out.println("--------------------------------------------------------------------");        
+        //System.out.println("--------------------------------------------------------------------");  
     } 
-
-    /**
-     * Methode quicksort_intern
-     *
-     * Der Algorithmus teilt das Array durch ein Pivotelement in
-     * 2 kleinere Arrays. Dabei werden immer die Zahlen links und 
-     * rechts vom Pivotelement auf die richtige Seite gebracht
-     *
-     *
-     * @param pL linker Rand des Arrays
-     * @param pR rechter rand des Arrays
-     */
+    
     private void quicksort_intern(int pL, int pR)
     {
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
-         if(pL<pR && hPivot>=0){
-            while(hLinks!=hRechts){
-                if(zZahlenarray[hLinks] >= zZahlenarray[hPivot]){
-                    if(zZahlenarray[hRechts] <= zZahlenarray[hPivot]){
-                        int temp = zZahlenarray[hRechts];
-                        zZahlenarray[hRechts] = zZahlenarray[hLinks];
-                        zZahlenarray[hLinks] = temp;
-                        if(hLinks == hPivot){
-                            hPivot = hRechts;
-                        } else if(hRechts == hPivot){
-                            hPivot = hLinks;
-                        }
-                        if(hLinks < hPivot){
-                            hLinks ++;
-                        }
-                        if(hRechts > hPivot){
-                            hRechts--;
-                        }
-                    }else{
-                        hRechts--;
-                    }
-                }else{
-                    hLinks ++;
-                    if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot){
-                        hRechts --;
-                    }
-                }
-            }
-            //Spaltung des Arrays und rekursiver Aufruf
-            quicksort_intern(pL, hPivot-1);
-            quicksort_intern(hPivot + 1, pR);
-       }
-    }
-    /**
-     * Methode binaereSuche
-     *
-     * Das sortierte Array wird durch die mitte geteilt. Falls die mittlere Zahl größer
-     * als die gesuchte ist, wird der Prozess rekursiv mit der rechten Hälfte des Arrrays
-     * wiederholt, ansonsten mit der linken.
-     *
-     * @param pL linker Rand des Arrays
-     * @param pR rechter Rand des Arrays
-     * @return Index der gesuchten Zahl. -1 Falls sie nicht vorhanden ist.
-     */
-    private int binaereSuche(int pL, int pR, int x)
-    {
-        if (pR >= pL) {
-            int mitte = pL + (pR - pL) / 2;
-        if (zZahlenarray[mitte] == x)
-                return mitte;
-        if (zZahlenarray[mitte] > x)
-                return binaereSuche(pL, mitte - 1, x);
-        return binaereSuche(mitte + 1, pR, x);
+        if (pL < pR)
+        {
+          int pi = partition(zZahlenarray, pL, pR, hPivot); 
+          quicksort_intern(pL, pi-1);
+          quicksort_intern(pi+1, pR);
         }
-
-        return -1;
     }
+    
+    public static void tauschen(int[] array, int j, int i)
+    {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
+    
+    public static void main(String[] args){
+       Sortieren_Brian test = new Sortieren_Brian();
+       test.quickSort();
+    }
+    
+    
+    
+    public static int partition(int[] array, int lowest,int highest,int hPivot)
+    {
+        int teile = lowest - 1;
+        for(int suche = lowest;  suche < highest; suche++)
+        {
+            if(array[suche] < hPivot)
+            {
+                teile++;
+                tauschen(array, teile, suche);
+            }
+        }
+        
+        tauschen(array, teile+1, highest);
+        return (teile+1);
+    }
+    
+    public void mergeSort()
+    {
+        
+    }
+    
+    
+    private void merge_intern(int links, int mitte, int rechts)
+    {
+        int i,j,k;
+        i = 0;
+        j = links;
+        int []b = new int [mitte - links +1];
+        while (j <= mitte)
+        {
+            b[i] = zZahlenarray[j];
+            i++;
+            j++;
+        }
+        i = 0;
+        k= links;
+        while(k<j && j>= rechts)
+        {
+            if(b[i] <=zZahlenarray[j])
+            {
+                zZahlenarray[k] = b[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                zZahlenarray[k] = zZahlenarray[j];
+                k++;
+                j++;
+            }
+        }
+        while(k<j)
+        {
+            zZahlenarray[k] = b[i];
+            k++;
+            i++;
+        }
+    }
+    
+    public boolean binaereSuche(int pGesuchteZahl)
+    {
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+      return true;  
+    }
+}
