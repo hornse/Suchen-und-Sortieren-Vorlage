@@ -332,7 +332,7 @@
                 return binaereSuche_intern(pZahl, mitte + 1, pEnde);
                 
             }else{
-                return true; 
+                return true;  
             }
         }
         else if(zZahlenarray[pBeginn] == pZahl){
