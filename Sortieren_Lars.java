@@ -313,4 +313,35 @@
             
         }
     }
+    
+    public boolean binaereSuche(int pGesuchteZahl)
+    {
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+        
+        if(pEnde >= pBeginn){
+            int mitte = (pEnde + pBeginn) /2;
+            if( pZahl < zZahlenarray[mitte]){
+                return binaereSuche_intern(pZahl, pBeginn, mitte -1);
+            }else if( pZahl > zZahlenarray[mitte]){
+                return binaereSuche_intern(pZahl, mitte + 1, pEnde);
+                
+            }else{
+                return true; 
+            }
+        }
+        else if(zZahlenarray[pBeginn] == pZahl){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+    
 }
