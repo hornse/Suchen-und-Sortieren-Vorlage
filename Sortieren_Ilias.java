@@ -174,7 +174,7 @@ public class Sortieren_Ilias
                     zZahlenarray[i] = zZahlenarray[j];
                     zZahlenarray[j] = temp;
                 }
-                        }
+            }
         }    
     }
     
