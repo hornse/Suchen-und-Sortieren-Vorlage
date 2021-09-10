@@ -294,7 +294,7 @@ public class Sortieren_Jodie
      * @param pR rechter Rand des Arrays
      * @return Index der gesuchten Zahl. -1 Falls sie nicht vorhanden ist.
      */
-    private int binaereSuche(int pL, int pR, int x)
+    public int binaereSuche(int pL, int pR, int x)
     {
         if (pR >= pL) {
             int mitte = pL + (pR - pL) / 2;
