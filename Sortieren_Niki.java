@@ -1,5 +1,6 @@
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
+import java.util.Arrays;
 /**
  * Mit Hilfe von Objekten der Klasse Sortierer koennen Zahlenwerte, die in einem Array gespeichert sind,
  * der groesse nach von klein nach groß sortiert werden.
@@ -214,5 +215,95 @@ public class Sortieren_Niki
             }
         }    
         return false;
-    }    
+    }
+    
+    public void quickSort()
+    {
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        //zeigeElementenfolge();
+        quicksort_intern(0, zZahlenarray.length-1);        
+        //zeigeElementenfolge();
+        //System.out.println("--------------------------------------------------------------------");        
+    } 
+    
+    private void quicksort_intern(int pL, int pR)
+    {
+        int hLinks = pL;  // Hilfszeiger f¸r links
+        int hRechts = pR; // Hilfszeiger f¸r rechts
+        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+
+        if(pL<pR && hPivot>=0){
+            while(hLinks!=hRechts){
+                if(zZahlenarray[hLinks] >= zZahlenarray[hPivot]){
+                    if(zZahlenarray[hRechts] <= zZahlenarray[hPivot]){
+                        int temp = zZahlenarray[hRechts];
+                        zZahlenarray[hRechts] = zZahlenarray[hLinks];
+                        zZahlenarray[hLinks] = temp;
+
+                        if(hLinks == hPivot){
+                            hPivot = hRechts;
+                        } else if(hRechts == hPivot){
+                            hPivot = hLinks;
+                        }
+
+                        if(hLinks < hPivot){
+                            hLinks ++;
+                        }
+                        if(hRechts > hPivot){
+                            hRechts--;
+                        }
+                    }else{
+                        hRechts--;
+                    }
+                }else{
+                    hLinks ++;
+                    if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot){
+                        hRechts --;
+                    }
+                }
+            }
+
+            //Spaltung des Arrays und rekursiver Aufruf
+            quicksort_intern(pL, hPivot-1);
+            quicksort_intern(hPivot + 1, pR);
+
+
+        }
+    }
+    
+    /**
+     * Methode binaereSuche
+     *
+     * Das sortierte Array wird durch die mitte geteilt. Falls die mittlere Zahl größer
+     * als die gesuchte ist, wird der Prozess rekursiv mit der rechten Hälfte des Arrrays
+     * wiederholt, ansonsten mit der linken.
+     *
+     * @param pL linker Rand des Arrays
+     * @param pR rechter Rand des Arrays
+     * @return Index der gesuchten Zahl. -1 Falls sie nicht vorhanden ist.
+     */
+    public int binaereSuche(int pL, int pR, int x)
+    {
+        if (pR >= pL) {
+            int mitte = pL + (pR - pL) / 2;
+            
+
+            if (zZahlenarray[mitte] == x)
+                return mitte;
+  
+            if (zZahlenarray[mitte] > x)
+                return binaereSuche(pL, mitte - 1, x);
+  
+            return binaereSuche(mitte + 1, pR, x);
+        }
+          
+        return -1;
+    }
+    
+    public void printArray() 
+    {
+        System.out.println(Arrays.toString(zZahlenarray));
+        }
 }
+
