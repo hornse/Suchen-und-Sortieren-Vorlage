@@ -166,7 +166,7 @@ public class Sortieren_Emiliano
      * Wenn fertig geprüft, bzw getauscht wurde, werden die nächsten beiden Zahlen geprüft und Sortiert, sodass am Ende
      * ganz rechts die größte Zahl des Arrays steht.
      */
-    public void biúbblesortOptimiert()
+    public void bubblesortOptimiert()
     {
         boolean fertig;
         int temp;
@@ -257,7 +257,134 @@ public class Sortieren_Emiliano
      */
     public boolean lineareSuche(int pZahl)
     {      
-       //
-       return false;
+        for(int i = 0; i < zZahlenarray.length; i++)
+        {    
+             if(zZahlenarray[i] == pZahl)
+             {    
+                 return true;    
+             }
+        }    
+        return false;
     }    
+    
+    /**
+     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
+     */
+    public void quickSort()
+    {
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        //zeigeElementenfolge();
+        quicksort_intern(0, zZahlenarray.length-1);        
+        //zeigeElementenfolge();
+        //System.out.println("--------------------------------------------------------------------");        
+    } 
+    
+    private void quicksort_intern(int pL, int pR)
+    {
+        int hLinks = pL;  // Hilfszeiger f¸r links
+        int hRechts = pR; // Hilfszeiger f¸r rechts
+        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        if(pL<pR && hPivot>=0)
+        {
+            while(hLinks!=hRechts)
+            {
+                if(zZahlenarray[hLinks] >= zZahlenarray[hPivot])
+                {
+                    if(zZahlenarray[hRechts] <= zZahlenarray[hPivot])
+                    {
+                        int temp = zZahlenarray[hRechts];
+                        zZahlenarray[hRechts] = zZahlenarray[hLinks];
+                        zZahlenarray[hLinks] = temp;
+                        if(hLinks == hPivot)
+                        {
+                            hPivot = hRechts;
+                        } 
+                        else if(hRechts == hPivot)
+                        {
+                            hPivot = hLinks;
+                        }
+                        
+                        if(hLinks < hPivot)
+                        {
+                            hLinks ++;
+                        }
+                        
+                        if(hRechts > hPivot)
+                        {
+                            hRechts--;
+                        }
+                    }
+                    else
+                    {
+                        hRechts--;
+                    }
+                }else{
+                    hLinks ++;
+                    if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot)
+                    {
+                        hRechts --;
+                    }
+                }
+            }
+
+            quicksort_intern(pL, hPivot-1);
+            quicksort_intern(hPivot + 1, pR);
+        }
+    }
+    
+    public void mergeSort()
+    {
+        
+    }
+    
+    
+    private void merge_intern(int links, int mitte, int rechts)
+    {
+        int i,j,k;
+        i = 0;
+        j = links;
+        int []b = new int [mitte - links +1];
+        while (j <= mitte)
+        {
+            b[i] = zZahlenarray[j];
+            i++;
+            j++;
+        }
+        i = 0;
+        k= links;
+        while(k<j && j>= rechts)
+        {
+            if(b[i] <=zZahlenarray[j])
+            {
+                zZahlenarray[k] = b[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                zZahlenarray[k] = zZahlenarray[j];
+                k++;
+                j++;
+            }
+        }
+        while(k<j)
+        {
+            zZahlenarray[k] = b[i];
+            k++;
+            i++;
+        }
+    }
+    
+    public boolean binaereSuche(int pGesuchteZahl)
+    {
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+        return true;  
+    }
 }
