@@ -236,40 +236,38 @@ public class Sortieren_Taha
     }
     
     private void quickSort_intern(int pL, int pR) {
-        System.out.println(Arrays.toString(zZahlenarray));
-        if(pL < pR) {
-            int hPivot = (int) (Math.random()*(pR-pL+1))+pL;
-            int hLinks = pL;
-            int hRechts = pR;
-            
-            int i = pL;
-            int itemFromLeft = i;
-            while(zZahlenarray[i] <= zZahlenarray[hPivot] && i < pR) {
-                i++;
-                itemFromLeft = i;
+        int hLinks = pL;
+        int hRechts = pR;
+        int hPivot = (int)(Math.random() * (pR - pL + 1)) + pL;
+
+        while (hLinks < hRechts) {
+            while (hPivot > hLinks && hLinks < pR) {
+                hLinks++;
             }
-            
-            int j = pR;
-            int itemFromRight = j;
-            while(zZahlenarray[j] >= zZahlenarray[hPivot] && j > pL) {
-                j--;
-                itemFromRight = j;
+
+            while (hPivot < hRechts && hRechts > pL) {
+                hRechts--;
             }
-            
-            int temp = zZahlenarray[itemFromRight];
-            zZahlenarray[itemFromRight] = zZahlenarray[itemFromLeft];  
-            zZahlenarray[itemFromLeft] = temp;
-            
-            if(itemFromLeft > itemFromRight) {
-                int temp2 = zZahlenarray[hPivot];
-                zZahlenarray[hPivot] = zZahlenarray[itemFromLeft];  
-                zZahlenarray[itemFromLeft] = temp;
-                
-                quickSort_intern(pL, itemFromLeft - 1);
-                quickSort_intern(itemFromLeft + 1, pR);
+
+            if (hLinks < hRechts) {
+                int temp = zZahlenarray[hLinks];
+                zZahlenarray[hLinks] = zZahlenarray[hRechts];
+                zZahlenarray[hRechts] = temp;
+                hLinks++;
+                hRechts--;
             }
-            
-            quickSort_intern(pL, pR);
+
+            int temp = zZahlenarray[hLinks];
+            zZahlenarray[hLinks] = zZahlenarray[hPivot];
+            zZahlenarray[hPivot] = temp;
+
+            if (pL < hRechts) {
+                quickSort_intern(pL, hRechts);
+            }
+
+            if (hLinks < pR) {
+                quickSort_intern(hLinks, pR);
+            }
         }
     }
     
@@ -288,4 +286,59 @@ public class Sortieren_Taha
         }    
         return false;
     }    
+    
+    public void mergeSort()
+    {
+        
+    }
+    
+    
+    private void merge_intern(int links, int mitte, int rechts)
+    {
+        int i,j,k;
+        i = 0;
+        j = links;
+        int []b = new int [mitte - links +1];
+        while (j <= mitte)
+        {
+            b[i] = zZahlenarray[j];
+            i++;
+            j++;
+        }
+        i = 0;
+        k= links;
+        while(k<j && j>= rechts)
+        {
+            if(b[i] <=zZahlenarray[j])
+            {
+                zZahlenarray[k] = b[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                zZahlenarray[k] = zZahlenarray[j];
+                k++;
+                j++;
+            }
+        }
+        while(k<j)
+        {
+            zZahlenarray[k] = b[i];
+            k++;
+            i++;
+        }
+    }
+    
+    public boolean binaereSuche(int pGesuchteZahl)
+    {
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+      return true;  
+    }
 }
