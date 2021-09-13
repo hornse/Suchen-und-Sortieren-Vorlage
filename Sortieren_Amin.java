@@ -118,7 +118,8 @@ public class Sortieren_Amin
      * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
      * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
      */
-    public void bubblesort() {
+    public int bubblesort() {
+        int zugriffe = 0;
         boolean finished = false;
         while(!finished) {
             finished = true;
@@ -128,9 +129,12 @@ public class Sortieren_Amin
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
                     finished = false;
+                    zugriffe+=6;
                 }
+                zugriffe+=2;
             }
         }
+        return zugriffe;
     }
 
     /**
@@ -174,17 +178,21 @@ public class Sortieren_Amin
      * 
      * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links iteriert wird.
      */
-    public void selectionSort()
+    public int selectionSort()
     {
+        int zugriffe = 0;
         for (int i = 0; i < zZahlenarray.length - 1; i++) {
             for (int j = i + 1; j < zZahlenarray.length; j++) {
                 if (zZahlenarray[i] > zZahlenarray[j]) {
                     int temp = zZahlenarray[i];
                     zZahlenarray[i] = zZahlenarray[j];
                     zZahlenarray[j] = temp;
+                    zugriffe+=6;
                 }
+                zugriffe+=2;
             }
         }
+        return zugriffe;
     }    
 
     /**
@@ -293,7 +301,6 @@ public class Sortieren_Amin
         if (pR >= pL) {
             int mitte = pL + (pR - pL) / 2;
             
-
             if (zZahlenarray[mitte] == x)
                 return mitte;
   

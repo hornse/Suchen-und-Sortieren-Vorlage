@@ -118,8 +118,10 @@ public class Sortieren_Jodie
      * kleiner ist werden die Zahlen vertauscht.
      * 
      */
-    public void bubblesort()
+    public int bubblesort()
     {   boolean sortiert = false;
+        int zugriffe;
+        zugriffe = 0;
         while ( !sortiert)
 
         {
@@ -130,11 +132,13 @@ public class Sortieren_Jodie
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = temp;
                     sortiert = false;
+                    zugriffe +=6;
                 }
-
+                zugriffe +=2;
             }
 
         }
+        return zugriffe;
     }
 
     /**
@@ -179,18 +183,23 @@ public class Sortieren_Jodie
      * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links durchgeführt wird.
      */
 
-    public void selectionSort()
+    public int selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
+        int zugriffe;
+        zugriffe = 0;
         for (int i = 0; i < zZahlenarray.length - 1; i++) {
             for (int j = i + 1; j < zZahlenarray.length; j++) {
                 if (zZahlenarray[i] > zZahlenarray[j]) {
                     int temp = zZahlenarray[i];
                     zZahlenarray[i] = zZahlenarray[j];
                     zZahlenarray[j] = temp;
+                    zugriffe += 6;
                 }
+                zugriffe +=2;
             }
         }
+        return zugriffe;
     }    
 
     /**
