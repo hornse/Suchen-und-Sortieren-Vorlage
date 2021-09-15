@@ -152,14 +152,13 @@ public class Sortieren_Erica
     public void bubblesortoptimiert()
     {   
        //Dein Quellcode
-       int s = 0;
+       int s;
        zZaehler = 0;
        boolean swap = true;
-       do
+       while (swap == true)//solange swap auf true gesetzt ist, führe aus:
        {
-           for (int j=0; j<zZahlenarray.length-1; j++) //für jedes j(also jeden Index), dass kleiner als die Groeße des Arrays ist
+           for (int j = 0; j < zZahlenarray.length-1; j++) //für jedes j(also jeden Index), dass kleiner als die Groeße des Arrays ist
            {
-               
                if(zZahlenarray[j] > zZahlenarray[j+1])//wenn der Index j größer also der folgende Index ist, führe aus:
                {
                    //Dreieckstausch
@@ -170,14 +169,14 @@ public class Sortieren_Erica
                    swap = true;//weil getauscht wurde, setzt swap auf true
                    zZaehler = zZaehler + 6;//erhoeht zZaehler um 6
                }
-               else 
+               else
                {
-                   swap = false;//weil der vorherige Index NICHT größer als der folgende Index ist, setzt swap auf false
+                   swap = false;
                }
+               
                zZaehler = zZaehler + 2;//erhoeht zZaehler um 2
            }
        }
-       while (swap == true);
     }
     
     /**
