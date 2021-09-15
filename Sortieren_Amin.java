@@ -117,6 +117,8 @@ public class Sortieren_Amin
      * 
      * Bubblesort sortiert indem durch das Array iteriert wird und jeweils
      * 2 nebeneinanderstehende Zahlen verglichen und vertauscht werden.
+     * 
+     * @return Anzahl der Zugriffe (Vergleich=2, Vertauschung=6)
      */
     public int bubblesort() {
         int zugriffe = 0;
@@ -177,6 +179,8 @@ public class Sortieren_Amin
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      * 
      * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links iteriert wird.
+     * 
+     * @return Anzahl der Zugriffe (Vergleich=2, Vertauschung=6)
      */
     public int selectionSort()
     {
@@ -217,14 +221,14 @@ public class Sortieren_Amin
     /**
      * Initiale Sortiermethode fuer den Quicksort-Algorithmus
      */
-    public void quickSort()
+    public int quickSort()
     {
         System.out.println("--------------------------------------------------------------------");
         System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        print();        
         print();
-        quicksort_intern(0, zZahlenarray.length-1);        
-        print();
-        System.out.println("--------------------------------------------------------------------");        
+        System.out.println("--------------------------------------------------------------------");
+        return quicksort_intern(0, zZahlenarray.length-1);
     }
     
     
@@ -239,8 +243,9 @@ public class Sortieren_Amin
      * @param pL linker Rand des Arrays
      * @param pR rechter rand des Arrays
      */
-    private void quicksort_intern(int pL, int pR)
-    {
+    private int quicksort_intern(int pL, int pR)
+    {   
+        int zugriffe = 0;
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
@@ -248,10 +253,12 @@ public class Sortieren_Amin
         if(pL<pR && hPivot>=0){
             while(hLinks!=hRechts){
                 if(zZahlenarray[hLinks] >= zZahlenarray[hPivot]){
+                    zugriffe+=2;
                     if(zZahlenarray[hRechts] <= zZahlenarray[hPivot]){
                         int temp = zZahlenarray[hRechts];
                         zZahlenarray[hRechts] = zZahlenarray[hLinks];
                         zZahlenarray[hLinks] = temp;
+                        zugriffe+=6;
 
                         if(hLinks == hPivot){
                             hPivot = hRechts;
@@ -277,11 +284,12 @@ public class Sortieren_Amin
             }
 
             //Spaltung des Arrays und rekursiver Aufruf
-            quicksort_intern(pL, hPivot-1);
-            quicksort_intern(hPivot + 1, pR);
+            zugriffe += quicksort_intern(pL, hPivot-1);
+            zugriffe += quicksort_intern(hPivot + 1, pR);
 
 
         }
+        return zugriffe;
     }
     
     
