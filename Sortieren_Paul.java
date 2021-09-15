@@ -18,6 +18,7 @@ public class Sortieren_Paul
     private int zZahlenarray[];
     private Random zZufallsgenerator;
     private double Durchgangszähler;
+    private double Laufzeitzähler;
 
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
 
@@ -34,6 +35,7 @@ public class Sortieren_Paul
         zZahlenarray=new int [30];
         zZufallsgenerator=new Random(); 
         Durchgangszähler=0;
+        Laufzeitzähler=0;
     }
 
     /**
@@ -70,6 +72,11 @@ public class Sortieren_Paul
     public void Durchgangszähler_Reset()
     {         
         Durchgangszähler=0;
+    }
+    
+    public void Laufzeitzähler_Reset()
+    {         
+        Laufzeitzähler=0;
     }
 
     /**
@@ -131,7 +138,9 @@ public class Sortieren_Paul
                                  temp=zZahlenarray[j-1];  
                                  zZahlenarray[j-1]=zZahlenarray[j];  
                                  zZahlenarray[j]=temp;  
+                                 Laufzeitzähler=Laufzeitzähler+6;
                          }  
+                         Laufzeitzähler=Laufzeitzähler+2;
                  }  
                  Durchgangszähler=Durchgangszähler+1;
          }  
@@ -148,10 +157,12 @@ public class Sortieren_Paul
                                  temp=zZahlenarray[j-1];  
                                  zZahlenarray[j-1]=zZahlenarray[j];  
                                  zZahlenarray[j]=temp;  
-                         }  
+                                 Laufzeitzähler=Laufzeitzähler+6;
+                         }
                          else{
                                  Ende=true;
                          }  
+                         Laufzeitzähler=Laufzeitzähler+2; 
                  }
                  Durchgangszähler=Durchgangszähler+1;
          }  
@@ -178,7 +189,9 @@ public class Sortieren_Paul
             while (i>0 && zZahlenarray[i-1] > temp) {
                 zZahlenarray[i]=zZahlenarray[i - 1];
                 i--;
-            }
+                Laufzeitzähler=Laufzeitzähler+6;
+            }  
+            Laufzeitzähler=Laufzeitzähler+2;
             zZahlenarray[i]=temp;
             Durchgangszähler=Durchgangszähler+1;
         }   
@@ -204,7 +217,9 @@ public class Sortieren_Paul
                     int temp=zZahlenarray[i];
                     zZahlenarray[i]=zZahlenarray[j];
                     zZahlenarray[j]=temp;
-                }
+                    Laufzeitzähler=Laufzeitzähler+6;
+                         }  
+                Laufzeitzähler=Laufzeitzähler+2;
             }
             Durchgangszähler=Durchgangszähler+1;
 }
