@@ -19,6 +19,7 @@ public class Sortieren_Erica
     private int s;
     private int zZahlenarray[];
     private Random zZufallsgenerator;
+    private int zZaehler;
             
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Erica 
     
@@ -130,7 +131,7 @@ public class Sortieren_Erica
     {   
        //Dein Quellcode
        int s = 0;
-       
+       zZaehler = 0;
        for (int i=0; i<zZahlenarray.length; i++)
        {
            for (int j=0; j<zZahlenarray.length-1; j++)
@@ -140,34 +141,43 @@ public class Sortieren_Erica
                     s = zZahlenarray[j];
                     zZahlenarray[j] = zZahlenarray[j+1];
                     zZahlenarray[j+1] = s;
+                    
+                    zZaehler = zZaehler + 6;
                }
+               zZaehler = zZaehler + 2;
            }
+           zZaehler = zZaehler + 2;
        }
     }
     public void bubblesortoptimiert()
     {   
        //Dein Quellcode
        int s = 0;
-       
+       zZaehler = 0;
        boolean swap = true;
-       while (swap = true)
+       do
        {
-           for (int j=0; j<zZahlenarray.length-1; j++)
+           for (int j=0; j<zZahlenarray.length-1; j++) //für jedes j(also jeden Index), dass kleiner als die Groeße des Arrays ist
            {
-               if(zZahlenarray[j] > zZahlenarray[j+1])
+               
+               if(zZahlenarray[j] > zZahlenarray[j+1])//wenn der Index j größer also der folgende Index ist, führe aus:
                {
+                   //Dreieckstausch
                    s = zZahlenarray[j];
                    zZahlenarray[j] = zZahlenarray[j+1];
                    zZahlenarray[j+1] = s;
                    
-                   swap = true;
+                   swap = true;//weil getauscht wurde, setzt swap auf true
+                   zZaehler = zZaehler + 6;//erhoeht zZaehler um 6
                }
                else 
                {
-                   swap = false;
+                   swap = false;//weil der vorherige Index NICHT größer als der folgende Index ist, setzt swap auf false
                }
+               zZaehler = zZaehler + 2;//erhoeht zZaehler um 2
            }
        }
+       while (swap == true);
     }
     
     /**
@@ -270,7 +280,8 @@ public class Sortieren_Erica
                         
                         
                     
-                    }else
+                    }
+                    else
                     {
                         hRechts --; // Verschiebung des rechten Zeiger wenn noch nicht für Tausch bereit
                     }
@@ -288,6 +299,7 @@ public class Sortieren_Erica
                 }
             }
         }
+        
     }
     
     public void mergeSort()
@@ -332,6 +344,9 @@ public class Sortieren_Erica
             i++;
         }
     }
+    
+    
+    
     public boolean binaereSuche(int pGesuchteZahl)
     {
         boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
