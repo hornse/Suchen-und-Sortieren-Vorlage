@@ -7,8 +7,8 @@ import java.util.Random;
  * Fuer die Erzeugung von Zufallszahlen steht die Klasse Random zur Verfügung, die zuvor siehe 1. Zeile importiert 
  * werden muss.
  * 
- * @author Sebastian Horn
- * @version 0.2
+ * @author Emiliano Schimeczek
+ * @version 0.5
  */
 public class Sortieren_Emiliano
 {            
@@ -16,6 +16,7 @@ public class Sortieren_Emiliano
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
+    private double durchgangszähler;
             
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren_Emiliano 
     
@@ -31,6 +32,7 @@ public class Sortieren_Emiliano
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [30];
         zZufallsgenerator = new Random(); 
+        durchgangszähler = 0;
     }
     
     /**
@@ -45,6 +47,7 @@ public class Sortieren_Emiliano
         //Zustandvariablen werden initialisiert
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
+        durchgangszähler = 0;
     }
     
     /**
@@ -62,6 +65,7 @@ public class Sortieren_Emiliano
         zZahlenarray = new int [pGroesse];
         zZufallsgenerator = new Random(); 
         bfmsZufallflex(pMaxZahl);
+        durchgangszähler = 0;
     }
     
     /**
@@ -77,6 +81,7 @@ public class Sortieren_Emiliano
         for(int i = 0; i < zZahlenarray.length; i++) {
             zZahlenarray[i] = zZufallsgenerator.nextInt(1000);
         }
+        durchgangszähler = 0;
     }
     
     /**
@@ -86,9 +91,10 @@ public class Sortieren_Emiliano
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-       for(int i = 0; i < zZahlenarray.length; i++) {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
-        }
+        for(int i = 0; i < zZahlenarray.length; i++) {
+             zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
+         }
+        durchgangszähler = 0;
     }
 
 
@@ -104,6 +110,16 @@ public class Sortieren_Emiliano
         {
             zZahlenarray[i]= i +1;
         }
+    }
+    
+    /**
+     * Das setzt den Durchgangszähler auf 0.
+     * Der Durchgangszähler zählt alle Zugriffe auf das Array und zeigt an,
+     * wie viele Zugriffe vom Sortier-Algorythmus auf das Array benötigt wurden.
+     */
+    public void resetDurchgangszähler ()
+    {
+        durchgangszähler = 0;
     }
     
     
@@ -142,7 +158,12 @@ public class Sortieren_Emiliano
                         zZahlenarray[j] = zZahlenarray[j + 1];  
                         zZahlenarray[j + 1] = temp;
                         fertig = true;
+                        durchgangszähler = durchgangszähler + 8;
                     }  
+                    else 
+                    {
+                        durchgangszähler = durchgangszähler + 2;
+                    }
                 }  
             } 
             fertig = true;
@@ -181,6 +202,11 @@ public class Sortieren_Emiliano
                     temp = zZahlenarray[i];
                     zZahlenarray[i] = zZahlenarray[i + 1];
                     zZahlenarray[i + 1] = temp;
+                    durchgangszähler = durchgangszähler + 8;
+                }
+                else
+                {
+                    durchgangszähler = durchgangszähler + 2;
                 }
             }
         } while (fertig == false);
@@ -239,12 +265,15 @@ public class Sortieren_Emiliano
                 {
                     //deklaration vom Index mit aktueller kleinsten Zahl
                     lowest = j;
+                    durchgangszähler = durchgangszähler + 2;
                 }
+                durchgangszähler = durchgangszähler + 2;
             }
             //vertauschen aktuellen Ińdex mit dem kleinsten
             int temp = zZahlenarray[i];
             zZahlenarray[i] = zZahlenarray[lowest];  
             zZahlenarray[lowest] = temp;
+            durchgangszähler = durchgangszähler + 6;
         }
     }    
     
@@ -285,34 +314,51 @@ public class Sortieren_Emiliano
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
-        if(pL<pR && hPivot>=0)
+        durchgangszähler = durchgangszähler + 1;
+        if(pL < pR && hPivot>=0)
         {
+            durchgangszähler = durchgangszähler + 3;
             while(hLinks!=hRechts)
             {
+                durchgangszähler = durchgangszähler + 2;
                 if(zZahlenarray[hLinks] >= zZahlenarray[hPivot])
                 {
+                    durchgangszähler = durchgangszähler + 2;
                     if(zZahlenarray[hRechts] <= zZahlenarray[hPivot])
                     {
                         int temp = zZahlenarray[hRechts];
                         zZahlenarray[hRechts] = zZahlenarray[hLinks];
                         zZahlenarray[hLinks] = temp;
+                        durchgangszähler = durchgangszähler + 8;
                         if(hLinks == hPivot)
                         {
                             hPivot = hRechts;
+                            durchgangszähler = durchgangszähler + 4;
                         } 
                         else if(hRechts == hPivot)
                         {
                             hPivot = hLinks;
+                            durchgangszähler = durchgangszähler + 4;
                         }
                         
                         if(hLinks < hPivot)
                         {
                             hLinks ++;
+                            durchgangszähler = durchgangszähler + 3;
+                        }
+                        else
+                        {
+                            durchgangszähler = durchgangszähler + 2;
                         }
                         
                         if(hRechts > hPivot)
                         {
                             hRechts--;
+                            durchgangszähler = durchgangszähler + 3;
+                        }
+                        else
+                        {
+                            durchgangszähler = durchgangszähler + 2;
                         }
                     }
                     else
@@ -320,17 +366,26 @@ public class Sortieren_Emiliano
                         hRechts--;
                     }
                 }else{
+                    durchgangszähler = durchgangszähler + 2;
                     hLinks ++;
+                    durchgangszähler = durchgangszähler + 1;
                     if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot)
                     {
                         hRechts --;
+                        durchgangszähler = durchgangszähler + 5;
+                    }
+                    else
+                    {
+                        durchgangszähler = durchgangszähler + 4;
                     }
                 }
             }
 
             quicksort_intern(pL, hPivot-1);
             quicksort_intern(hPivot + 1, pR);
+            durchgangszähler = durchgangszähler + 4;
         }
+        durchgangszähler = durchgangszähler + 3;
     }
     
     public void mergeSort()
