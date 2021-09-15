@@ -17,6 +17,8 @@ public class Sortieren_Paul
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
+    private double Durchgangszähler;
+    private double Laufzeitzähler;
 
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
 
@@ -30,8 +32,10 @@ public class Sortieren_Paul
     public Sortieren_Paul()
     {  
         //Zustandvariablen werden initialisiert
-        zZahlenarray = new int [30];
-        zZufallsgenerator = new Random(); 
+        zZahlenarray=new int [30];
+        zZufallsgenerator=new Random(); 
+        Durchgangszähler=0;
+        Laufzeitzähler=0;
     }
 
     /**
@@ -63,6 +67,16 @@ public class Sortieren_Paul
         zZahlenarray=new int [pGroesse];
         zZufallsgenerator=new Random(); 
         bfmsZufallflex(pMaxZahl);
+    }
+    
+    public void Durchgangszähler_Reset()
+    {         
+        Durchgangszähler=0;
+    }
+    
+    public void Laufzeitzähler_Reset()
+    {         
+        Laufzeitzähler=0;
     }
 
     /**
@@ -124,8 +138,11 @@ public class Sortieren_Paul
                                  temp=zZahlenarray[j-1];  
                                  zZahlenarray[j-1]=zZahlenarray[j];  
                                  zZahlenarray[j]=temp;  
+                                 Laufzeitzähler=Laufzeitzähler+6;
                          }  
+                         Laufzeitzähler=Laufzeitzähler+2;
                  }  
+                 Durchgangszähler=Durchgangszähler+1;
          }  
     }
     public void optimized_bubblesort()
@@ -140,11 +157,14 @@ public class Sortieren_Paul
                                  temp=zZahlenarray[j-1];  
                                  zZahlenarray[j-1]=zZahlenarray[j];  
                                  zZahlenarray[j]=temp;  
-                         }  
+                                 Laufzeitzähler=Laufzeitzähler+6;
+                         }
                          else{
                                  Ende=true;
                          }  
-                 }  
+                         Laufzeitzähler=Laufzeitzähler+2; 
+                 }
+                 Durchgangszähler=Durchgangszähler+1;
          }  
         }while (Ende=false);
     }
@@ -169,8 +189,11 @@ public class Sortieren_Paul
             while (i>0 && zZahlenarray[i-1] > temp) {
                 zZahlenarray[i]=zZahlenarray[i - 1];
                 i--;
-            }
-            zZahlenarray[i]=temp;   
+                Laufzeitzähler=Laufzeitzähler+6;
+            }  
+            Laufzeitzähler=Laufzeitzähler+2;
+            zZahlenarray[i]=temp;
+            Durchgangszähler=Durchgangszähler+1;
         }   
     }
 
@@ -194,8 +217,11 @@ public class Sortieren_Paul
                     int temp=zZahlenarray[i];
                     zZahlenarray[i]=zZahlenarray[j];
                     zZahlenarray[j]=temp;
-                }
+                    Laufzeitzähler=Laufzeitzähler+6;
+                         }  
+                Laufzeitzähler=Laufzeitzähler+2;
             }
+            Durchgangszähler=Durchgangszähler+1;
 }
 }
 
@@ -227,10 +253,11 @@ public class Sortieren_Paul
     
     private void quicksort_intern(int pL, int pR)
     {
-        int hLinks = pL;  // Hilfszeiger f¸r links
-        int hRechts = pR; // Hilfszeiger f¸r rechts
-        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        int hLinks=pL;  // Hilfszeiger f¸r links
+        int hRechts=pR; // Hilfszeiger f¸r rechts
+        int hPivot=(int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
         //dein Quellcode hier
+        if (pL>=pR) return;
     }
     
     public void mergeSort()

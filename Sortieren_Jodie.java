@@ -183,94 +183,29 @@ public class Sortieren_Jodie
      * Der Algorithmus funktioniert wie bubblesort. Er unterscheidet sich darin, dass von rechts nach links durchgeführt wird.
      */
 
-    public int selectionSort()
-    {
-        //Tipp: Auch hier werden 2 Schleifen benötigt
-        int zugriffe;
-        zugriffe = 0;
-        for (int i = 0; i < zZahlenarray.length - 1; i++) {
-            for (int j = i + 1; j < zZahlenarray.length; j++) {
-                if (zZahlenarray[i] > zZahlenarray[j]) {
-                    int temp = zZahlenarray[i];
-                    zZahlenarray[i] = zZahlenarray[j];
-                    zZahlenarray[j] = temp;
-                    zugriffe += 6;
-                }
-                zugriffe +=2;
-            }
-        }
-        return zugriffe;
-    }    
-
-    /**
-     * Methode lineareSuche
-     *
-     * @param pZahl Angabe der zu suchenden zahl
-     * @return true wenn die Zahl gefunden wurde, sonst false
-     * 
-     *  Es wird durch das Array durgegangen und die übergebene Zahl mit der vom Nutzer eingeben Zahl verglichen.
-     * 
-     */
-    public boolean lineareSuche(int pZahl)
-    {   for ( int i = 0; i < zZahlenarray.length; i++) {    
-            if ( zZahlenarray[i] == pZahl)
-            { return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Methode print
-     *
-     * Das Array wird in der Konsole ausgegeben
-     */    
-
-    public void print() {
-        System.out.println(Arrays.toString(zZahlenarray));
-    }
-
-    /**
-     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
-     */
-    public void quickSort()
-    {
-        System.out.println("--------------------------------------------------------------------");
-        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
-        //zeigeElementenfolge();
-        quicksort_intern(0, zZahlenarray.length-1);        
-        //zeigeElementenfolge();
-        //System.out.println("--------------------------------------------------------------------");        
-    } 
-
-    /**
-     * Methode quicksort_intern
-     *
-     * Der Algorithmus teilt das Array durch ein Pivotelement in
-     * 2 kleinere Arrays. Dabei werden immer die Zahlen links und 
-     * rechts vom Pivotelement auf die richtige Seite gebracht
-     *
-     *
-     * @param pL linker Rand des Arrays
-     * @param pR rechter rand des Arrays
-     */
-    private void quicksort_intern(int pL, int pR)
-    {
+        private int quicksort_intern(int pL, int pR)
+    {   
+        int zugriffe = 0;
         int hLinks = pL;  // Hilfszeiger f¸r links
         int hRechts = pR; // Hilfszeiger f¸r rechts
         int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
-         if(pL<pR && hPivot>=0){
+
+        if(pL<pR && hPivot>=0){
             while(hLinks!=hRechts){
                 if(zZahlenarray[hLinks] >= zZahlenarray[hPivot]){
+                    zugriffe+=2;
                     if(zZahlenarray[hRechts] <= zZahlenarray[hPivot]){
                         int temp = zZahlenarray[hRechts];
                         zZahlenarray[hRechts] = zZahlenarray[hLinks];
                         zZahlenarray[hLinks] = temp;
+                        zugriffe+=6;
+
                         if(hLinks == hPivot){
                             hPivot = hRechts;
                         } else if(hRechts == hPivot){
                             hPivot = hLinks;
                         }
+
                         if(hLinks < hPivot){
                             hLinks ++;
                         }
@@ -287,11 +222,16 @@ public class Sortieren_Jodie
                     }
                 }
             }
+
             //Spaltung des Arrays und rekursiver Aufruf
-            quicksort_intern(pL, hPivot-1);
-            quicksort_intern(hPivot + 1, pR);
-       }
+            zugriffe += quicksort_intern(pL, hPivot-1);
+            zugriffe += quicksort_intern(hPivot + 1, pR);
+
+
+        }
+        return zugriffe;
     }
+    
     /**
      * Methode binaereSuche
      *
