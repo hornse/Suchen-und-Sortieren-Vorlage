@@ -96,7 +96,7 @@ public class Sortieren_Erica
        // Dein Quellcode hier
        for (int i=0; i<zZahlenarray.length; i++)
         {
-            zZahlenarray[i] = zZufallsgenerator.nextInt(zMaxZahl);
+            zZahlenarray[i] = zZufallsgenerator.nextInt(pMaxZahl);
         }
     }
 
@@ -157,6 +157,7 @@ public class Sortieren_Erica
        boolean swap = true;
        while (swap == true)//solange swap auf true gesetzt ist, führe aus:
        {
+           swap = false;
            for (int j = 0; j < zZahlenarray.length-1; j++) //für jedes j(also jeden Index), dass kleiner als die Groeße des Arrays ist
            {
                if(zZahlenarray[j] > zZahlenarray[j+1])//wenn der Index j größer also der folgende Index ist, führe aus:
@@ -165,14 +166,11 @@ public class Sortieren_Erica
                    s = zZahlenarray[j];
                    zZahlenarray[j] = zZahlenarray[j+1];
                    zZahlenarray[j+1] = s;
-                   
+                   s = 0;
                    swap = true;//weil getauscht wurde, setzt swap auf true
                    zZaehler = zZaehler + 6;//erhoeht zZaehler um 6
                }
-               else
-               {
-                   swap = false;
-               }
+               
                
                zZaehler = zZaehler + 2;//erhoeht zZaehler um 2
            }
