@@ -17,7 +17,7 @@ public class Sortieren_Adrian
     //Deklaration der globalen Variablen/Zustandvariablen
     private int zZahlenarray[];
     private Random zZufallsgenerator;
-            
+    private int zZaehler;        
     //Methoden/ Eigenschaften von Objekten der klasse Sortieren 
     
     /**
@@ -73,9 +73,9 @@ public class Sortieren_Adrian
      */
     public void bfmsZufall()
     {         
-        //Mit Hilfe der Methode nextInt(int pInt) der Klasse Random kann eine Zufallszahl im Spektrum
-        // von 0 - pInt erzeugt werden Bs.p: der Aufruf zZufallsgenerator.nextInt(1000) erzeugt eine Zufallszahl im Spektrum 
-        // von 0 - 1000
+        for(int i=0; i<zZahlenarray.length; i++) {
+            zZahlenarray[i]=zZufallsgenerator.nextInt(1000);
+        }
     }
     
     /**
@@ -85,7 +85,9 @@ public class Sortieren_Adrian
      */
     public void bfmsZufallflex(int pMaxZahl)
     {
-       // Dein Quellcode hier
+       for(int i=0; i<zZahlenarray.length; i++) {
+            zZahlenarray[i]=zZufallsgenerator.nextInt(pMaxZahl);
+        }
     }
 
 
@@ -100,12 +102,9 @@ public class Sortieren_Adrian
         for(int i = 0; i < 30; ++i)
         {
             zZahlenarray[i]= i +1;
-            
         }
     }
-    
-    
-    /**
+        /**
      * Method bubblesort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Bubblesort sortiert worden.
      * 
@@ -116,20 +115,21 @@ public class Sortieren_Adrian
      * muss aufgerufen worden sein.
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      */
-    public void bubblesort()
-    {   
-           for(int i = 0; i < zZahlenarray.length; ++i){
+    public void bubblesort(){
+        zZaehler = 0;
+        for(int i = 0; i < zZahlenarray.length; ++i){
            for(int j = 0; j < zZahlenarray.length-1; ++j){
                if (zZahlenarray[j] > zZahlenarray[j+1]){
                    int hilfint = 0;
                    hilfint = zZahlenarray[j];
                    zZahlenarray[j] = zZahlenarray[j+1];
                    zZahlenarray[j+1] = hilfint;
+                   zZaehler = zZaehler + 6;
                }
-           }
-       }
-    }
-    
+               zZaehler = zZaehler + 2;
+            }
+        }
+    }    
     /**
      * Method insertionsort
      * Auftrag: Nach Aufruf der Methode ist das Array zZahlenarray nach dem Prinzip Insertionsort sortiert worden.
@@ -169,16 +169,19 @@ public class Sortieren_Adrian
      */
     public void selectionSort()
     {
-    int max = 0;
-    int min = 0;
-    for (int i = 1; i < zZahlenarray.length; ++i) { 
-        if (zZahlenarray[i]>max) {
-            max = zZahlenarray[j];}
-        if (zZahlenarray[i]<min) {
-            min = zZahlenarray[j];}
+    //int max = 0;
+    //int min = 0;
+    //for (int i = 1; i < zZahlenarray.length -1; ++i) {
         
+        
+        //if (zZahlenarray[i]>max) {
+            //max = zZahlenarray[j];}
+        //if (zZahlenarray[i]<min) {
+            //min = zZahlenarray[j];}
+        //int temp = zZahlenarray[i];
+      
     }
-    }    
+        
     /**
      * Methode lineareSuche
      *
@@ -200,6 +203,7 @@ public class Sortieren_Adrian
         System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
         //zeigeElementenfolge();
         quicksort_intern(0, zZahlenarray.length-1);        
+        
         //zeigeElementenfolge();
         //System.out.println("--------------------------------------------------------------------");        
     } 
