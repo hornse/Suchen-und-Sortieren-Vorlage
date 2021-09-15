@@ -97,9 +97,10 @@ public class Sortieren_Adrian
      */
     public void bfms()
     { 
-        for(int i = 0; i < 30; i++)
+        for(int i = 0; i < 30; ++i)
         {
             zZahlenarray[i]= i +1;
+            
         }
     }
     
@@ -117,8 +118,8 @@ public class Sortieren_Adrian
      */
     public void bubblesort()
     {   
-           for(int i = 0; i < zZahlenarray.length; i++){
-           for(int j = 0; j < zZahlenarray.length-1; j++){
+           for(int i = 0; i < zZahlenarray.length; ++i){
+           for(int j = 0; j < zZahlenarray.length-1; ++j){
                if (zZahlenarray[j] > zZahlenarray[j+1]){
                    int hilfint = 0;
                    hilfint = zZahlenarray[j];
@@ -141,7 +142,7 @@ public class Sortieren_Adrian
      * Wenn nicht bricht BlueJ mit einer Fehlermedung ab.
      */
     public void insertionsort() {
-    for (int i = 1; i < zZahlenarray.length; i++) {
+    for (int i = 1; i < zZahlenarray.length; ++i) {
         if (zZahlenarray[i - 1] > zZahlenarray[i]) {
             while ((i > -1) && (zZahlenarray[i - 1] > zZahlenarray[i])) {
                 int temp = zZahlenarray[i];
@@ -151,7 +152,8 @@ public class Sortieren_Adrian
             }
         }
     }
-}
+    }
+
 
     
     /**
@@ -167,10 +169,16 @@ public class Sortieren_Adrian
      */
     public void selectionSort()
     {
+    int max = 0;
+    int min = 0;
+    for (int i = 1; i < zZahlenarray.length; ++i) { 
+        if (zZahlenarray[i]>max) {
+            max = zZahlenarray[j];}
+        if (zZahlenarray[i]<min) {
+            min = zZahlenarray[j];}
         
+    }
     }    
-    
-    
     /**
      * Methode lineareSuche
      *
