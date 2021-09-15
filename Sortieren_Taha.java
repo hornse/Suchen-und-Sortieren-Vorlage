@@ -281,7 +281,8 @@ public class Sortieren_Taha
      */
     public boolean lineareSuche(int pZahl)
     {      
-        for(int i = 0; i < zZahlenarray.length; i++){    
+        for(int i = 0; i < zZahlenarray.length; i++)
+        {    
             if(zZahlenarray[i] == pZahl){    
                 return true;    
             }

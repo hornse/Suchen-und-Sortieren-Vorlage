@@ -144,6 +144,31 @@ public class Sortieren_Erica
            }
        }
     }
+    public void bubblesortoptimiert()
+    {   
+       //Dein Quellcode
+       int s = 0;
+       
+       boolean swap = true;
+       while (swap = true)
+       {
+           for (int j=0; j<zZahlenarray.length-1; j++)
+           {
+               if(zZahlenarray[j] > zZahlenarray[j+1])
+               {
+                   s = zZahlenarray[j];
+                   zZahlenarray[j] = zZahlenarray[j+1];
+                   zZahlenarray[j+1] = s;
+                   
+                   swap = true;
+               }
+               else 
+               {
+                   swap = false;
+               }
+           }
+       }
+    }
     
     /**
      * Method insertionsort
@@ -159,17 +184,7 @@ public class Sortieren_Erica
     public void insertionsort()
     {   
         //Tipp: i = 1
-        int s = 0;
-        for (int i=1; i>=zZahlenarray.length-1; i++)
-        {   
-            if (zZahlenarray[i]>zZahlenarray[i+1])
-            {
-                s = zZahlenarray[i];
-                zZahlenarray[i+1] = zZahlenarray[i];
-                zZahlenarray[i] = s;
-            }
-            
-        }    
+        
     }
     
     /**
@@ -186,12 +201,149 @@ public class Sortieren_Erica
     public void selectionSort()
     {
         //Tipp: Auch hier werden 2 Schleifen benötigt
-        for (int i=0; i>=zZahlenarray.length; i++)
-        {
-            
+        for (int i = 0; i < zZahlenarray.length - 1; i++) {
+            for (int j = i + 1; j < zZahlenarray.length; j++) {
+                if (zZahlenarray[i] > zZahlenarray[j]) {
+                    int temp = zZahlenarray[i];
+                    zZahlenarray[i] = zZahlenarray[j];
+                    zZahlenarray[j] = temp;
+                }
+            }
         }
-    }    
+    }
     
+    /**
+     * Initiale Sortiermethode fuer den Quicksort-Algorithmus
+     */
+    public void quickSort()
+    {
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Beginne neuen Sortiervorgang mit Quicksort");
+        //zeigeElementenfolge();
+        quicksort_intern(0, zZahlenarray.length-1);        
+        //zeigeElementenfolge();
+        //System.out.println("--------------------------------------------------------------------");
+    } 
+    
+    private void quicksort_intern(int pL, int pR)
+    {
+        int hLinks = pL;  // Hilfszeiger f¸r links
+        int hRechts = pR; // Hilfszeiger f¸r rechts
+        int hPivot = (int) (Math.random()*(pR-pL+1))+pL; // Stelle des Pivot
+        //dein Quellcode hier
+        
+        if(pL<pR && hPivot>=0)// Wenn Array Auschnitt nur ein Element ist, ist die Bedingung unwahr
+        { 
+            while(hLinks!=hRechts)// Abbruchbedingung: Wenn linkes und rechtes Element aufeinader treffen
+            { 
+                if(zZahlenarray[hLinks] > zZahlenarray[hPivot] || hLinks== hPivot)// Prüfen ob linkes Element für Tausch bereit ist
+                { 
+                    if(zZahlenarray[hRechts] < zZahlenarray[hPivot] || hRechts == hPivot)// Prüfen ob rechtes Element für Tausch bereit ist
+                    { 
+                        // Beide Elemente sind für Tausch bereit
+                        //Dreieckstasuch wird durchgeführt
+                        int zwischen = zZahlenarray[hRechts];
+                        zZahlenarray[hRechts] = zZahlenarray[hLinks];
+                        zZahlenarray[hLinks] = zwischen;
+                        
+                        // Ändeung der Stelle vom Pivoelement, wenn diese verändert wurde
+                        if(hLinks == hPivot)
+                        {
+                            hPivot = hRechts;
+                        }
+                        
+                        else if(hRechts == hPivot)
+                        {
+                            hPivot = hLinks;
+                        }
+                        
+                        // Verschiebung der Zeiger, wenn jeweiliger auf richtiger Seite vom Pivotelement
+                        if(hLinks < hPivot)
+                        {
+                            hLinks ++;
+                        }
+                        
+                        if(hRechts > hPivot)
+                        {
+                            hRechts --;
+                        }
+                        
+                        
+                    
+                    }else
+                    {
+                        hRechts --; // Verschiebung des rechten Zeiger wenn noch nicht für Tausch bereit
+                    }
+                    
+                }
+                else
+                {
+                    hLinks ++; // Verschiebung des linken Zeiger wenn noch nicht für Tausch bereit
+                    
+                    if(zZahlenarray[hRechts] >= zZahlenarray[hPivot] && hRechts > hPivot)
+                    {
+                        hRechts --; // Verschiebung von rechten Zeiger wenn noch nicht für Tausch bereit
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    public void mergeSort()
+    {
+        
+    }
+    
+    
+    private void merge_intern(int links, int mitte, int rechts)
+    {
+        int i,j,k;
+        i = 0;
+        j = links;
+        int []b = new int [mitte - links +1];
+        while (j <= mitte)
+        {
+            b[i] = zZahlenarray[j];
+            i++;
+            j++;
+        }
+        i = 0;
+        k= links;
+        while(k<j && j>= rechts)
+        {
+            if(b[i] <=zZahlenarray[j])
+            {
+                zZahlenarray[k] = b[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                zZahlenarray[k] = zZahlenarray[j];
+                k++;
+                j++;
+            }
+        }
+        while(k<j)
+        {
+            zZahlenarray[k] = b[i];
+            k++;
+            i++;
+        }
+    }
+    public boolean binaereSuche(int pGesuchteZahl)
+    {
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+        
+        return true;  
+    }
     
     /**
      * Methode lineareSuche
@@ -202,6 +354,13 @@ public class Sortieren_Erica
     public boolean lineareSuche(int pZahl)
     {      
        //
+       for (int i = 0; i<zZahlenarray.length; i++)
+       {
+           if (zZahlenarray[i] == pZahl)
+           {
+               return true;
+           }
+       }
        return false;
     }    
 }
