@@ -240,34 +240,23 @@ public class Sortieren_Taha
         int hRechts = pR;
         int hPivot = (int)(Math.random() * (pR - pL + 1)) + pL;
 
-        while (hLinks < hRechts) {
-            while (hPivot > hLinks && hLinks < pR) {
+        while (hLinks < hRechts && hPivot >= 0) {
+            while (zZahlenarray[hPivot] > zZahlenarray[hLinks] && hLinks <= hPivot) {
                 hLinks++;
             }
 
-            while (hPivot < hRechts && hRechts > pL) {
-                hRechts--;
-            }
-
-            if (hLinks < hRechts) {
-                int temp = zZahlenarray[hLinks];
-                zZahlenarray[hLinks] = zZahlenarray[hRechts];
-                zZahlenarray[hRechts] = temp;
-                hLinks++;
+            while (zZahlenarray[hPivot] < zZahlenarray[hRechts] && hRechts >= hPivot) {
                 hRechts--;
             }
 
             int temp = zZahlenarray[hLinks];
-            zZahlenarray[hLinks] = zZahlenarray[hPivot];
-            zZahlenarray[hPivot] = temp;
-
-            if (pL < hRechts) {
-                quickSort_intern(pL, hRechts);
-            }
-
-            if (hLinks < pR) {
-                quickSort_intern(hLinks, pR);
-            }
+            zZahlenarray[hLinks] = zZahlenarray[hRechts];
+            zZahlenarray[hRechts] = temp;
+            hLinks++;
+            hRechts--;
+            
+            quickSort_intern(pL, hRechts);
+            quickSort_intern(hLinks, pR);
         }
     }
     
@@ -339,7 +328,12 @@ public class Sortieren_Taha
     
     private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
     {
-        //Dein Quellcode hier
-      return true;  
+        int mitte = (pBeginn + pEnde) / 2;
+        if(zZahlenarray[mitte] == pZahl) {
+            return true;
+        }
+        
+        
+        return true;  
     }
 }
