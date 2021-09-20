@@ -277,33 +277,33 @@ public class Sortieren_Niki
         }
     }
     
-    /**
-     * Methode binaereSuche
-     *
-     * Das sortierte Array wird durch die mitte geteilt. Falls die mittlere Zahl größer
-     * als die gesuchte ist, wird der Prozess rekursiv mit der rechten Hälfte des Arrrays
-     * wiederholt, ansonsten mit der linken.
-     *
-     * @param pL linker Rand des Arrays
-     * @param pR rechter Rand des Arrays
-     * @return Index der gesuchten Zahl. -1 Falls sie nicht vorhanden ist.
-     */
-    public int binaereSuche(int pL, int pR, int x)
+    public boolean binaereSuche(int pGesuchteZahl)
     {
-        if (pR >= pL) {
-            int mitte = pL + (pR - pL) / 2;
-            
-
-            if (zZahlenarray[mitte] == x)
-                return mitte;
-  
-            if (zZahlenarray[mitte] > x)
-                return binaereSuche(pL, mitte - 1, x);
-  
-            return binaereSuche(mitte + 1, pR, x);
+        boolean gefunden = binaereSuche_intern(pGesuchteZahl,0, zZahlenarray.length -1);
+        return gefunden;        
+    }
+    
+    private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
+    {
+        //Dein Quellcode hier
+        
+        if(pEnde >= pBeginn){
+            int mitte = (pEnde + pBeginn) /2;
+            if( pZahl < zZahlenarray[mitte]){
+                return binaereSuche_intern(pZahl, pBeginn, mitte -1);
+            }else if( pZahl > zZahlenarray[mitte]){
+                return binaereSuche_intern(pZahl, mitte + 1, pEnde);
+                
+            }else{
+                return true;  
+            }
         }
-          
-        return -1;
+        else if(zZahlenarray[pBeginn] == pZahl){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
     
     public void printArray() 
