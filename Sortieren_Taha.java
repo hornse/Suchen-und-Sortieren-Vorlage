@@ -230,34 +230,40 @@ public class Sortieren_Taha
     }    
     
     public void quickSort() {
-        System.out.println("-----------------------------");
-        System.out.println("quickSort bruder $$$$$");
         quickSort_intern(0, zZahlenarray.length - 1);
     }
     
     private void quickSort_intern(int pL, int pR) {
         int hLinks = pL;
         int hRechts = pR;
-        int hPivot = (int)(Math.random() * (pR - pL + 1)) + pL;
-
-        while (hLinks < hRechts && hPivot >= 0) {
-            while (zZahlenarray[hPivot] > zZahlenarray[hLinks] && hLinks <= hPivot) {
+        int hPivot = zZahlenarray[pL + (pR - pL) / 2];
+        
+        while (hLinks <= hRechts) {
+            while (zZahlenarray[hLinks] < hPivot) {
                 hLinks++;
             }
-
-            while (zZahlenarray[hPivot] < zZahlenarray[hRechts] && hRechts >= hPivot) {
+    
+            while (zZahlenarray[hRechts] > hPivot) {
                 hRechts--;
             }
-
-            int temp = zZahlenarray[hLinks];
-            zZahlenarray[hLinks] = zZahlenarray[hRechts];
-            zZahlenarray[hRechts] = temp;
-            hLinks++;
-            hRechts--;
-            
-            quickSort_intern(pL, hRechts);
-            quickSort_intern(hLinks, pR);
+                
+            if (hLinks <= hRechts) {
+                int temp = zZahlenarray[hLinks];
+                zZahlenarray[hLinks] = zZahlenarray[hRechts];
+                zZahlenarray[hRechts] = temp;   
+                
+                hLinks++;
+                hRechts--;
+            }
         }
+            
+        if (pL < hRechts){
+            quickSort_intern(pL, hRechts);
+        }
+            
+        if (hLinks < pR) {
+            quickSort_intern(hLinks, pR);
+        }  
     }
     
     /**
@@ -328,11 +334,19 @@ public class Sortieren_Taha
     
     private boolean binaereSuche_intern(int pZahl, int pBeginn, int pEnde)
     {
-        int mitte = (pBeginn + pEnde) / 2;
-        if(zZahlenarray[mitte] == pZahl) {
-            return true;
+        if(pBeginn > pEnde) {
+            return false;
         }
         
+        int mitte = (pBeginn + pEnde) / 2;
+        
+        if(zZahlenarray[mitte] > pZahl) {
+            return binaereSuche_intern(pZahl, pBeginn, mitte - 1);
+        }
+        
+        if(zZahlenarray[mitte] < pZahl) {
+            return binaereSuche_intern(pZahl, mitte + 1, pEnde);
+        }
         
         return true;  
     }
