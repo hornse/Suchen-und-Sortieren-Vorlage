@@ -1,4 +1,4 @@
-https://cryptpad.fr/pad/#/3/pad/edit/79486a0b5b0e42c76657b2da62399b5b/
+https://cryptpad.fr/pad/#/2/pad/edit/2FF+29e6M91cjQjSvUCbPpeq/
 //Das Java Paket Random wird benötigt, um mit Hilfe eines Objektes der klasse Random Zufallszahlen zu erzeugen.
 import java.util.Random;
 import java.util.Arrays;
